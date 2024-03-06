@@ -1,10 +1,32 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+// Import the required Provider component and createBrowserRouter helper function
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
+import App from './App.jsx'
+// import Error from './pages/Error';
+import Home from './pages/Home';
+
+// Define the router object which will control the Provider's ability to display certain pages to match the proper URLs
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    // put error page
+    // errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      // {
+      //   path: '/thoughts/:thoughtId',
+      //   element: <SingleThought />,
+      // },
+    ],
+  },
+]);
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <RouterProvider router={router} />
 )
