@@ -2,7 +2,7 @@
     {
     "name":"camera",
     "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
-    "image": "/",
+    "image": "https://i1.adis.ws/i/canon/canon_eos-r10_product_gallery_1_c9051cbc2c6e433881adf22161b5b20f?$prod-gallery-1by1$",
     "price": "$200",
     "quantity": "1",
     "category":"Electronics"
@@ -10,25 +10,25 @@
     {
     "name":"camera2",
     "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
-    "image": "/",
+    "image": "https://i1.adis.ws/i/canon/canon_eos-r10_product_gallery_1_c9051cbc2c6e433881adf22161b5b20f?$prod-gallery-1by1$",
     "price": "$250",
     "quantity": "1",
     "category":"Electronics"
     },
     {
-    "name":"Toilet Paper",
+    "name":"t-shirt",
     "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
-    "image": "/",
+    "image": "https://www.trueclassictees.com/cdn/shop/files/4000_CARBON_2_7ee698ff-520f-48e3-9f61-3b1df6619809.jpg?v=1692655880&width=500&em-format=avif&em-width=500",
     "price": "$10",
     "quantity": "1",
-    "category":"faf"
+    "category":"T-shirts"
     },
     {
-    "name":"Mobile",
+    "name":"table",
     "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
-    "image": "/",
+    "image": "https://cdn-images.article.com/products/SKU23391/2890x1500/image113117.jpg?w=2100&q=60&fm=webp&fit=max",
     "price": "$350",
     "quantity": "1",
-    "category":"Electronics"
+    "category":"Furniture"
     }
 ]
