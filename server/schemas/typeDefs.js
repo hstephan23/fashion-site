@@ -48,7 +48,6 @@ const typeDefs = `
         userID: User
         comment: String
     }
-    
 
     type Checkout {
         session: ID
@@ -57,6 +56,15 @@ const typeDefs = `
     type Auth {
         token: ID
         user: User
+    }
+
+    input ProductInput {
+        _id: ID
+        purchaseQuantity: Int
+        name: String
+        image: String
+        price: Float
+        quantity: Int
     }
 
     type Query {
@@ -70,10 +78,15 @@ const typeDefs = `
         products: [Product]
 
         posts: [Post]
+        post(_id: ID!): Post
+
         comments: [Comment]
+        comment(_id: ID!): Comment
 
         order(_id: ID!): Order
         me: User
+
+        checkout(products: [ProductInput]): Checkout
     }
 
     type Mutations {
