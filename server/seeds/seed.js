@@ -1,7 +1,9 @@
 const db = require('../config/connection');
-const { Product, User } = require('../models');
-const productSeeds = require('./productSeeds.json');
-const categorySeeds = required('./categorySeeds.json')
+const { Product, User, Category } = require('../models');
+const electronicSeeds = require('./electronicSeeds.json');
+const categorySeeds = require('./categorySeeds.json');
+const furnitureSeeds = require('./furnitureSeeds.json');
+const tshirtSeeds = require('./t-shirtSeeds.json');
 const userSeeds = require('./userSeeds.json');
 const cleanDB = require('./cleanDB');
 
@@ -12,20 +14,29 @@ db.once('open', async () => {
     await cleanDB('Category',"categories");
 
     await User.create(userSeeds);
-    await Product.create(productSeeds);
-    await Category.create(categorySeeds);
+    const products = [...electronicSeeds, ...furnitureSeeds, ...tshirtSeeds]; 
+    await Product.create(products);
+    const cats = await Category.create(categorySeeds);
 
-    // for (let i = 0; i < productSeeds.length; i++) {
-    //   const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
-    //   const user = await User.findOneAndUpdate(
-    //     { username: thoughtAuthor },
-    //     {
-    //       $addToSet: {
-    //         thoughts: _id,
-    //       },
-    //     }
-    //   );
-    // }
+    const setCat = async (seeds, index) => {
+      for (let i = 0; i < seeds.length; i++) {
+        await Product.findOneAndUpdate(
+          { name: seeds[i].name },
+          {
+            $set: {
+              category: cats[index]._id,
+            } 
+          },
+          {
+            new: true
+          }
+        )
+      };
+    };
+
+    await setCat(electronicSeeds, 3);
+    await setCat(furnitureSeeds, 5);
+    await setCat(tshirtSeeds, 4);
 
     console.log('all done!');
     process.exit(0);
