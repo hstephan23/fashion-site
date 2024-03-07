@@ -48,6 +48,16 @@ const typeDefs = `
         userID: User
         comment: String
     }
+    
+
+    type Checkout {
+        session: ID
+    }
+
+    type Auth {
+        token: ID
+        user: User
+    }
 
     type Query {
         user(_id: ID!): User
@@ -59,19 +69,11 @@ const typeDefs = `
         product(_id: ID!): Product
         products: [Product]
 
-        posts: [Posts]
-        comments: [Comments]
+        posts: [Post]
+        comments: [Comment]
 
         order(_id: ID!): Order
-    }
-
-    type Checkout {
-        session: ID
-    }
-
-    type Auth {
-        token: ID
-        user: User
+        me: User
     }
 
     type Mutations {
@@ -86,7 +88,7 @@ const typeDefs = `
         removeComment(_id: ID!): Comment
 
         addProduct(name: String!, description: String, image: String, price: Float!, quantity: Int!, category: Category!): Product
-        updateProduct(_id: ID!, description: String, image: String, price: Float!, quantity: Int!): Product
+        updateProduct(_id: ID!, description: String, image: String, price: Float, quantity: Int!): Product
 
         addOrder(products: [Product]): Order
         updateOrder(products: [Product]): Order
