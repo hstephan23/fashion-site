@@ -28,9 +28,9 @@ const productSchema = new Schema({
     category: {
             type: Schema.Types.ObjectId,
             ref: 'Category',
-            required: true,
+            // required: true,
     }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Product = model('Product', productSchema);
 module.exports = Product;
