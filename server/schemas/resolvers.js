@@ -12,12 +12,20 @@ const resolvers = {
         return User.findOne({ _id: userId });
       },
 
-      article: async(_, {articleId}) => {
-
+      products: async() => {
+        return Product.find();
       },
 
-      articles: async(_, {articleId}) => {
+      product: async(_, { productId }) => {
+        return Product.findOne({ _id: productId });
+      },
 
+      article: async(_, {articleId}) => {
+        return Article.findOne({ _id: articleId });
+      },
+
+      articles: async() => {
+        return Article.find();
       },
 
       me: async(parent, args, context) => {
