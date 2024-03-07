@@ -104,8 +104,8 @@ const typeDefs = `
         addProduct(name: String!, description: String, image: String, price: Float!, quantity: Int!, category: String!): Product
         updateProduct(_id: ID!, description: String, image: String, price: Float, quantity: Int!): Product
 
-        addOrder(products: [Product]): Order
-        updateOrder(products: [Product]): Order
+        addOrder(products: [ProductInput]): Order
+        updateOrder(products: [ProductInput]): Order
         removeOrder(_id: ID!): Order
 
         login(email: String!, password: String!): Auth
