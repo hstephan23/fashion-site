@@ -77,15 +77,16 @@ const typeDefs = `
     type Mutations {
         addUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!): Auth
         updateUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!): User
-        removeUser(_id: ID!)
+        removeUser: User
 
-        createPost
-        removePost
+        addPost(text: String!, published: Boolean, createdAt: String, comments: Comments): Post 
+        removePost(_id: ID!): Post
+        
+        addComment(userID: Int!, comment: String!): Comment
+        removeComment(_id: ID!): Comment
 
-        createComment
-        removeComment
-
-        updateProduct(_id: ID!, quantity: Int!): Product
+        addProduct(name: String!, description: String, image: String, price: Float!, quantity: Int!, category: Category!): Product
+        updateProduct(_id: ID!, description: String, image: String, price: Float!, quantity: Int!): Product
 
         addOrder(products: [Product]): Order
         updateOrder(products: [Product]): Order
