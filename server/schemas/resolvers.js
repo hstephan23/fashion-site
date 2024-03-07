@@ -87,7 +87,7 @@ const resolvers = {
         return { session: session.id };
       }
     },
-    Mutations: {
+    Mutation: {
         addUser: async(_, args) => {
             const user = await User.create(args);
             const token = signToken(user);
@@ -147,8 +147,13 @@ const resolvers = {
             }
         },
 
-        addOrder: async(_, args) => {
-            const order = await Order.create(args);
+        addOrder: async(_, { products }) => {
+            const products_id = products.map((product) => product._id)
+            const order = await Order.create({
+                $addToSet: {
+                    products: { $each: { products_id }}
+                }
+            });
             return order;
         },
         updateOrder: async(_, { products }) => {
