@@ -95,13 +95,13 @@ const typeDefs = `
         updateUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!): User
         removeUser: User
 
-        addPost(text: String!, published: Boolean, createdAt: String, comments: Comment): Post 
+        addPost(text: String!, published: Boolean, createdAt: String, comments: String): Post 
         removePost(_id: ID!): Post
         
         addComment(userID: Int!, comment: String!): Comment
         removeComment(_id: ID!): Comment
 
-        addProduct(name: String!, description: String, image: String, price: Float!, quantity: Int!, category: Category!): Product
+        addProduct(name: String!, description: String, image: String, price: Float!, quantity: Int!, category: String!): Product
         updateProduct(_id: ID!, description: String, image: String, price: Float, quantity: Int!): Product
 
         addOrder(products: [Product]): Order
