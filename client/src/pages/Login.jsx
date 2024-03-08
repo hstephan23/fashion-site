@@ -7,16 +7,7 @@ import Auth from '../utils/auth';
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
+  const [login, { error, data }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -37,6 +28,15 @@ const Login = (props) => {
     });
   };
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
@@ -52,7 +52,7 @@ const Login = (props) => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your email"
+                  placeholder="Email"
                   name="email"
                   type="email"
                   value={formState.email}
@@ -76,11 +76,11 @@ const Login = (props) => {
               </form>
             )}
 
-            {error && (
+            {error ? (
               <div className="my-3 p-3 bg-danger text-white">
                 {error.message}
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
@@ -88,6 +88,7 @@ const Login = (props) => {
   );
 };
 
+<<<<<<< HEAD
 
 // import { useState } from 'react';
 // import { Link } from 'react-router-dom';
@@ -189,3 +190,6 @@ const Login = (props) => {
 // };
 
 export default Login ;
+=======
+export default Login;
+>>>>>>> c32a6cfdefd36b5e40c79d21ea1f029024d62930

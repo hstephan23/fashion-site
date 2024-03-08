@@ -30,8 +30,11 @@ const userScehma = new Schema({
         unique: true,
         match: [/.+@.+\..+/, 'Must match an email address!'],
     },
-    orders: [orderSchema],
-
+    // orders: [orderSchema],
+    orders: {
+        type: Schema.Types.ObjectId,
+        ref: 'Order',
+    }
 });
 
 userScehma.pre('save', async function (next) {

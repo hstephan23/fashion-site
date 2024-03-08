@@ -70,7 +70,7 @@ const typeDefs = `
     type Query {
         user(_id: ID!): User
         users: [User]
-        
+
         article(_id: ID!): Article
         articles: [Article]
 
@@ -92,15 +92,15 @@ const typeDefs = `
     type Mutation {
         addUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!): Auth
         updateUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!): User
-        removeUser: User
+        removeUser(_id: ID!): User
 
-        addPost(text: String!, published: Boolean, createdAt: String, comments: String): Post 
+        addPost(text: String!, published: Boolean, createdAt: String): Post 
         removePost(_id: ID!): Post
         
         addComment(userID: Int!, comment: String!): Comment
         removeComment(_id: ID!): Comment
 
-        addProduct(name: String!, description: String, image: String, price: Float!, quantity: Int!, category: String!): Product
+        addProduct(name: String!, description: String, image: String, price: Float!, quantity: Int!): Product
         updateProduct(_id: ID!, description: String, image: String, price: Float, quantity: Int!): Product
 
         addOrder(products: [ProductInput]): Order
@@ -111,4 +111,4 @@ const typeDefs = `
     }
 `
 
-module.exports = typeDefs; 
+module.exports = typeDefs;
