@@ -43,7 +43,7 @@ export const QUERY_SINGLE_ARTICLE = gql`
 `;
 
 export const QUERY_PRODUCTS = gql`
-    query allProducts() {
+    query allProducts {
         _id
         name
         description
@@ -68,7 +68,7 @@ export const QUERY_SINGLE_PRODUCT = gql`
 `;
 
 export const QUERY_POSTS = gql`
-    query allPosts() {
+    query allPosts {
         text
         published
         createdAt
