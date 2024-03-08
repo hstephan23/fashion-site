@@ -35,7 +35,6 @@ const userScehma = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Order',
     }
-
 });
 
 userScehma.pre('save', async function (next) {

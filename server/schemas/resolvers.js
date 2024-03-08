@@ -104,7 +104,8 @@ const resolvers = {
         },
         removeUser: async(_, {id}) => {
             try {
-                return await User.findByIdAndDelete(id);
+                const user = User.findByIdAndRemove(id, { new: true });
+                return await user;
             } catch {
                 throw console.error("No User Found");
             }

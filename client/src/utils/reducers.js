@@ -6,10 +6,16 @@ import {
     CLEAR_CART,
     UPDATE_CART_QUANTITY,
     TOGGLE_CART,
+    UPDATE_ARTICLES,
 } from './actions';
 
 export const reducer = (state, action) => {
     switch(action.type) {
+        case UPDATE_ARTICLES:
+            return {
+                ...state,
+                articles: [...action.articles],
+            }
         case UPDATE_PRODUCT:
             return {
                 ...state,
