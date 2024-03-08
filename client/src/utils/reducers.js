@@ -7,6 +7,7 @@ import {
     UPDATE_CART_QUANTITY,
     TOGGLE_CART,
     UPDATE_ARTICLES,
+    UPDATE_POSTS,
 } from './actions';
 
 export const reducer = (state, action) => {
@@ -15,6 +16,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 articles: [...action.articles],
+            }
+        case UPDATE_POSTS:
+            return {
+                ...state,
+                posts: [...action.posts],
             }
         case UPDATE_PRODUCT:
             return {

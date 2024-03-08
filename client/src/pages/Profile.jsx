@@ -34,6 +34,9 @@ const Profile = () => {
         You need to be logged in to see your profile page. Use the navigation
         links above to sign up or log in!
       </h4>
+    )
+  }
+  
   return (
     <div>
       <div>
@@ -44,9 +47,7 @@ const Profile = () => {
       <div>
         <ArticleList/>
       </div>
-
     </div>
-    
   );
 };
 
