@@ -114,35 +114,35 @@ export const UPDATE_ORDER = gql`
     }
 `;
 
-export const REMOVE_USER = gql`
-    mutation removeUser($user: ID!) {
-        removeUser(user: $user) {
+// export const REMOVE_USER = gql`
+//     mutation removeUser($user: ID!) {
+//         removeUser(user: $user) {
             
-        }
-    }
-`;
+//         }
+//     }
+// `;
 
-export const REMOVE_POST = gql`
-    mutation removePost($postID: ID!) {
-        removePost(postID: $postID) {
+// export const REMOVE_POST = gql`
+//     mutation removePost($postID: ID!) {
+//         removePost(postID: $postID) {
 
-        }
-    }
-`;
+//         }
+//     }
+// `;
 
-export const REMOVE_COMMENT = gql`
-    mutation removeComment($commentID: ID!) {
-        removeComment(commentID: $commentID) {
+// export const REMOVE_COMMENT = gql`
+//     mutation removeComment($commentID: ID!) {
+//         removeComment(commentID: $commentID) {
 
-        }
-    }
-`;
+//         }
+//     }
+// `;
 
-export const REMOVE_ORDER = gql`
-    mutation removeOrder($orderID: ID!) {
-        removeOrder(orderID: $orderID) {
+// export const REMOVE_ORDER = gql`
+//     mutation removeOrder($orderID: ID!) {
+//         removeOrder(orderID: $orderID) {
             
-        }
-    }
-`;
+//         }
+//     }
+// `;
 
