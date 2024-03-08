@@ -48,7 +48,7 @@ const ProductList = () => {
         <div>
             <h2>{currentCategory} Products: </h2>
             {state.products.length ? (
-                <div className="flex-row">
+                <div className="flex-row products-list">
                     {filterProducts().map((product) => (
                         <ProductItem 
                             key={product._id}
