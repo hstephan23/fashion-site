@@ -1,0 +1,16 @@
+[
+    {
+    "name":"camera",
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+    "image": "https://i1.adis.ws/i/canon/canon_eos-r10_product_gallery_1_c9051cbc2c6e433881adf22161b5b20f?$prod-gallery-1by1$",
+    "price": 200,
+    "quantity": 1
+    },
+    {
+    "name":"camera2",
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+    "image": "https://i1.adis.ws/i/canon/canon_eos-r10_product_gallery_1_c9051cbc2c6e433881adf22161b5b20f?$prod-gallery-1by1$",
+    "price": 250,
+    "quantity": 1
+    }
+]

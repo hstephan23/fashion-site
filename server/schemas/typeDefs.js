@@ -65,7 +65,6 @@ const typeDefs = `
         name: String
         image: String
         price: Float
-        quantity: Int
     }
 
     type Query {
@@ -90,6 +89,7 @@ const typeDefs = `
         checkout(products: [ProductInput]): Checkout
     }
 
+    type Mutation {
     type Mutation {
         addUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!): Auth
         updateUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!): User
