@@ -1,33 +1,21 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import { useMutation } from '@apollo/client';
-import { LOGIN } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN);
+const Signup = () => {
+  const [formState, setFormState] = useState({
+    firstName: '',
+    lastName: '',
+    userName: '',
+    email: '',
+    password: '',
+  });
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
-    try {
-      const { data } = await login({
-        variables: { ...formState },
-      });
-
-      Auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
-    }
-
-    setFormState({
-      email: '',
-      password: '',
-    });
-  };
-
+  const [addUser, { error, data }] = useMutation(ADD_USER);
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -35,13 +23,30 @@ const Login = (props) => {
       ...formState,
       [name]: value,
     });
+
+    console.log(formState);
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -50,6 +55,30 @@ const Login = (props) => {
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="Your First Name"
+                  name="firstName"
+                  type="text"
+                  value={formState.firstName}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Your Last Name"
+                  name="lastName"
+                  type="text"
+                  value={formState.lastName}
+                  onChange={handleChange}
+                />
+                <input
+                  className="form-input"
+                  placeholder="Your User Name"
+                  name="userName"
+                  type="text"
+                  value={formState.userName}
+                  onChange={handleChange}
+                />
                 <input
                   className="form-input"
                   placeholder="Your email"
@@ -76,11 +105,11 @@ const Login = (props) => {
               </form>
             )}
 
-            {error ? (
+            {error && (
               <div className="my-3 p-3 bg-danger text-white">
                 {error.message}
               </div>
-            ) : null}
+            )}
           </div>
         </div>
       </div>
@@ -88,4 +117,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default Signup;
