@@ -51,7 +51,7 @@ const resolvers = {
 
       me: async(parent, args, context) => {
         if(context.user) {
-            return Profile.findOne({ _id: context.user._id });
+            return User.findOne({ _id: context.user._id });
         }
         throw AuthenticationError
       },
@@ -87,12 +87,13 @@ const resolvers = {
         return { session: session.id };
       }
     },
+
     Mutation: {
         addUser: async(_, args) => {
             const user = await User.create(args);
             const token = signToken(user);
 
-            return { token, user };
+            return { user, token };
         },
         updateUser: async(_, args, context) => {
             if(context.user) {
