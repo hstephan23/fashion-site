@@ -85,12 +85,13 @@ const resolvers = {
         return { session: session.id };
       }
     },
-    Mutations: {
+
+    Mutation: {
         addUser: async(_, args) => {
             const user = await User.create(args);
             const token = signToken(user);
 
-            return { token, user };
+            return { user, token };
         },
         updateUser: async(_, args, context) => {
             if(context.user) {

@@ -5,4 +5,4 @@ const Order = require('./Order');
 const Article = require('./Article');
 const Post = require('./Post');
 
-module.exports = { User, Product, Category, Order };
+module.exports = { User, Product, Category, Order, Post, Article };
