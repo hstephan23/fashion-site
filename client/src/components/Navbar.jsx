@@ -1,36 +1,24 @@
-import Auth from '../utils/auth';
-
+// import './component-test.css';
 export default function Nav() {
     const linkStyle = { border: '1px black', padding: '5px' };
   
     return (
       <nav className="main-header-menu">
-        <section
-          style={{
-            display: 'flex',
-            fontFamily: 'monospace',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            justifyContent: 'flex-start',
-          }}
-        >
+        <section className="navbar-section">
           <div style={linkStyle}>
-              <a href="/">Home</a>
+            <a href="/">Home</a>
           </div>
           <div style={linkStyle}>
-            <a href="/login">Login</a>
+            <a href="/Login">Login</a>
           </div>
           <div style={linkStyle}>
-            <a href="/signup">Register</a>
+            <a href="/Signup">Sign-Up</a>
           </div>
           <div style={linkStyle}>
-            <a href="/me">Profile</a>
+            <a href="/Profile">Profile</a>
           </div>
           <div style={linkStyle}>
-            <a href="/content">Blog</a>
-          </div>
-          <div style={linkStyle}>
-            <a href="/cart">Cart</a>
+            <a href="/Content">Shop</a>
           </div>
         </section>
       </nav>
