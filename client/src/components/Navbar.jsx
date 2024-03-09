@@ -1,31 +1,24 @@
+// import './component-test.css';
 export default function Nav() {
     const linkStyle = { border: '1px black', padding: '5px' };
   
     return (
       <nav className="main-header-menu">
-        <section
-          style={{
-            display: 'flex',
-            fontFamily: 'monospace',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            justifyContent: 'flex-start',
-          }}
-        >
+        <section className="navbar-section">
           <div style={linkStyle}>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </div>
           <div style={linkStyle}>
-            <a href="#">Login</a>
+            <a href="/Login">Login</a>
           </div>
           <div style={linkStyle}>
-            <a href="#">Register</a>
+            <a href="/Signup">Sign-Up</a>
           </div>
           <div style={linkStyle}>
-            <a href="#">About</a>
+            <a href="/Profile">Profile</a>
           </div>
           <div style={linkStyle}>
-            <a href="#">Contact</a>
+            <a href="/Content">Shop</a>
           </div>
         </section>
       </nav>
