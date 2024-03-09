@@ -1,7 +1,9 @@
 const { Article, Category, Comment, Order, Post, Product, User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
-require('dotenv').config();
-const stripe = require('stripe')(process.env.SECRET_KEY_STRIPE);
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+
+// import the models 
+// import stripe
 
 const resolvers = {
     Query: {
@@ -49,7 +51,7 @@ const resolvers = {
 
       me: async(parent, args, context) => {
         if(context.user) {
-            return Profile.findOne({ _id: context.user._id });
+            return User.findOne({ _id: context.user._id });
         }
         throw AuthenticationError
       },
@@ -85,12 +87,13 @@ const resolvers = {
         return { session: session.id };
       }
     },
-    Mutations: {
+
+    Mutation: {
         addUser: async(_, args) => {
             const user = await User.create(args);
             const token = signToken(user);
 
-            return { token, user };
+            return { user, token };
         },
         updateUser: async(_, args, context) => {
             if(context.user) {
@@ -101,7 +104,8 @@ const resolvers = {
         },
         removeUser: async(_, {id}) => {
             try {
-                return await User.findByIdAndDelete(id);
+                const user = User.findByIdAndRemove(id, { new: true });
+                return await user;
             } catch {
                 throw console.error("No User Found");
             }
@@ -145,8 +149,13 @@ const resolvers = {
             }
         },
 
-        addOrder: async(_, args) => {
-            const order = await Order.create(args);
+        addOrder: async(_, { products }) => {
+            const products_id = products.map((product) => product._id)
+            const order = await Order.create({
+                $addToSet: {
+                    products: { $each: { products_id }}
+                }
+            });
             return order;
         },
         updateOrder: async(_, { products }) => {

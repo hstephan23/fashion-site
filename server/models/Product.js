@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const bcrypt = require('bcrypt');
 
 const productSchema = new Schema({
     name: {
@@ -28,9 +27,9 @@ const productSchema = new Schema({
     category: {
             type: Schema.Types.ObjectId,
             ref: 'Category',
-            required: true,
+            // required: true,
     }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Product = model('Product', productSchema);
 module.exports = Product;
