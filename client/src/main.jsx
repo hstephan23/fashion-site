@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Content from './pages/Content';
+import Cart from './components/Cart/index.jsx'
 
 // Define the router object which will control the Provider's ability to display certain pages to match the proper URLs
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup/>
+      },
+      {
+        path: '/cart',
+        element: <Cart />
       }
     ],
   },

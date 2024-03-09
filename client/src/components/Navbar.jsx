@@ -1,3 +1,5 @@
+import Auth from '../utils/auth';
+
 export default function Nav() {
     const linkStyle = { border: '1px black', padding: '5px' };
   
@@ -13,19 +15,22 @@ export default function Nav() {
           }}
         >
           <div style={linkStyle}>
-            <a href="#">Home</a>
+              <a href="/">Home</a>
           </div>
           <div style={linkStyle}>
-            <a href="#">Login</a>
+            <a href="/login">Login</a>
           </div>
           <div style={linkStyle}>
-            <a href="#">Register</a>
+            <a href="/signup">Register</a>
           </div>
           <div style={linkStyle}>
-            <a href="#">About</a>
+            <a href="/me">Profile</a>
           </div>
           <div style={linkStyle}>
-            <a href="#">Contact</a>
+            <a href="/content">Blog</a>
+          </div>
+          <div style={linkStyle}>
+            <a href="/cart">Cart</a>
           </div>
         </section>
       </nav>
