@@ -30,10 +30,17 @@ const Profile = () => {
 
   if (!profile?.name) {
     return (
-      <h4>
-        You need to be logged in to see your profile page. Use the navigation
-        links above to sign up or log in!
-      </h4>
+      <div>
+        <div>
+          <a href='/login'>Login</a>
+          <a href='/signup'>Sign-Up</a>
+        </div>
+        <h4>
+          You need to be logged in to see your profile page. Use the navigation
+          links above to sign up or log in!
+        </h4>
+      </div>
+      
     )
   }
   

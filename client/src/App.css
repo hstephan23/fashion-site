@@ -1,8 +1,13 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+
+body {
+  background-image: linear-gradient(135deg, cyan, grey, purple, pink);
+  height: 100%;
 }
 
 .logo {
