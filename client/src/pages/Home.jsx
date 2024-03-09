@@ -1,4 +1,3 @@
-import '../components/component-test.css';
 import { useNavigate } from "react-router-dom";
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import Header from '../components/Header';
@@ -29,7 +28,7 @@ const Home = () => {
   return (
     <div className='parallax-group'>
       <Header></Header>
-      <Parallax pages={4.5}>
+      <Parallax pages={4.4}>
         <ParallaxLayer speed={.1} sticky={{start: .5, end: 1}} factor={1}>
           <h1>BHIG Fashion!</h1>
           <h1>Find Your Style!</h1>

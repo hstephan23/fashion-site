@@ -12,7 +12,8 @@
 }
 
 .header-title {
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: var(--font-salsa);
+    text-shadow: var(--text-shadow);
 }
 
 .header-title:hover {
@@ -34,11 +35,11 @@
     height: 100%;
 }
 
-.navbar-section div {
+.nav-element {
     width: 25%
 }
 
-.navbar-section a {
+.nav-element a {
     display: block;
     color: whitesmoke;
     font-size: 150%;
@@ -49,6 +50,26 @@
 
 .navbar-section a:hover {
     transition-duration: .8s;
-    color: pink;
+    color: var(--color-coral);
     text-shadow: .5rem .5rem rgb(185, 185, 185);
 }
+
+.drop-menu {
+    background-image: var(--color-cyan);
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    height: auto;
+    width: 10rem;
+    opacity: 0;
+}
+
+.nav-hover:hover div {
+    transition-duration: .8s;
+    display: flex;
+    opacity: 1;
+}
+
+/* .nav-hover:hover + #drop-cart {
+    display: flex;
+} */

@@ -1,27 +1,35 @@
 // import './component-test.css';
 export default function Nav() {
     const linkStyle = { border: '1px black', padding: '5px' };
-  
+
     return (
       <nav className="main-header-menu">
         <section className="navbar-section">
-          <div style={linkStyle}>
+          <div className="nav-element" style={linkStyle}>
             <a href="/">Home</a>
           </div>
-          <div style={linkStyle}>
-            <a href="/Login">Login</a>
+
+          <div className="nav-element nav-hover" style={linkStyle}>
+            <a href="/login">Login</a>
+            <div id="drop-signup" className="drop-menu" style={linkStyle}>
+              <a href="/signup">Sign-Up</a>
+            </div>
           </div>
-          <div style={linkStyle}>
-            <a href="/Signup">Sign-Up</a>
+          
+          <div className="nav-element" style={linkStyle}>
+            <a id="profile-nav" href="/me">Profile</a>
           </div>
-          <div style={linkStyle}>
-            <a href="/Profile">Profile</a>
+          
+          <div className="nav-element" style={linkStyle}>
+            <a href="/content">Shop</a>
           </div>
-          <div style={linkStyle}>
-            <a href="/Content">Shop</a>
-          </div>
-          <div style={linkStyle}>
-            <a href="/Cart">Cart</a>
+
+          <div className="nav-element nav-hover" style={linkStyle}>
+            <a href="/cart">Cart</a>
+            <div id="drop-cart" className="drop-menu">
+              <a href="/order">Order History</a>
+              <a href="/cart">Check Out</a>
+            </div>
           </div>
         </section>
       </nav>

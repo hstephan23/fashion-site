@@ -1,9 +1,9 @@
 import Cart from '../components/Cart';
 
-const OrderHistory = () => {
+const CurrentOrder = () => {
     return (
         <div>
-            <h1>Order History</h1>
+            <h1>Cart</h1>
             <Cart>
 
             </Cart>
@@ -11,4 +11,4 @@ const OrderHistory = () => {
     )
 }
   
-export default OrderHistory;
+export default CurrentOrder;
