@@ -1,7 +1,12 @@
+import ProductList from "../components/ProductList";
+import CategoryMenu from "../components/CategoryMenu";
+
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div className="container">
+      Home
+    </div>
+  );
+};
 
-export default Home
+export default Home;
