@@ -1,34 +1,34 @@
 import { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../../utils/GlobalState';
-import {
-  UPDATE_CATEGORIES,
-  UPDATE_CURRENT_CATEGORY,
-} from '../../utils/actions';
-import { QUERY_CATEGORIES } from '../../utils/queries';
+// import {
+//   UPDATE_CATEGORIES,
+//   UPDATE_CURRENT_CATEGORY,
+// } from '../../utils/actions';
+// import { QUERY_CATEGORIES } from '../../utils/queries';
 
 function CategoryMenu() {
-  const [state, dispatch] = useStoreContext();
+  // const [state, dispatch] = useStoreContext();
 
-  const { categories } = state;
+  // const { categories } = state;
 
-  const { data: categoryData } = useQuery(QUERY_CATEGORIES);
+  // const { data: categoryData } = useQuery(QUERY_CATEGORIES);
 
-  useEffect(() => {
-    if (categoryData) {
-      dispatch({
-        type: UPDATE_CATEGORIES,
-        categories: categoryData.categories,
-      });
-    }
-  }, [categoryData, dispatch]);
+  // useEffect(() => {
+  //   if (categoryData) {
+  //     dispatch({
+  //       type: UPDATE_CATEGORIES,
+  //       categories: categoryData.categories,
+  //     });
+  //   }
+  // }, [categoryData, dispatch]);
 
-  const handleClick = (id) => {
-    dispatch({
-      type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id,
-    });
-  };
+  // const handleClick = (id) => {
+  //   dispatch({
+  //     type: UPDATE_CURRENT_CATEGORY,
+  //     currentCategory: id,
+  //   });
+  // };
 
   return (
     <div>
