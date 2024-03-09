@@ -20,6 +20,9 @@ export default function Nav() {
           <div style={linkStyle}>
             <a href="/Content">Shop</a>
           </div>
+          <div style={linkStyle}>
+            <a href="/Cart">Cart</a>
+          </div>
         </section>
       </nav>
     );

@@ -10,6 +10,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Content from './pages/Content';
+import OrderHistory from './pages/OrderHistory.jsx';
+import CurrentOrder from './pages/CurrentOrder.jsx';
 import Cart from './components/Cart/index.jsx'
 
 // Define the router object which will control the Provider's ability to display certain pages to match the proper URLs
@@ -45,7 +47,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/cart',
-        element: <Cart />
+        element: <CurrentOrder />
+      },
+      {
+        path: '/order',
+        element: <OrderHistory/>
       }
     ],
   },
