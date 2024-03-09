@@ -1,5 +1,5 @@
 import { 
-    UPDATE_PRODUCT,
+    UPDATE_PRODUCTS,
     ADD_TO_CART,
     ADD_MULTIPLE_TO_CART,
     REMOVE_FROM_CART,
@@ -22,7 +22,7 @@ export const reducer = (state, action) => {
                 ...state,
                 posts: [...action.posts],
             }
-        case UPDATE_PRODUCT:
+        case UPDATE_PRODUCTS:
             return {
                 ...state,
                 products: [...action.products],
