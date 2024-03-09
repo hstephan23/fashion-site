@@ -6,7 +6,6 @@ function Header() {
     <header className="header">
       <h1 className='header-title'>Fashion Blog</h1>
       <Navbar></Navbar>
-    
     </header>
   );
 }

@@ -12,7 +12,8 @@
 }
 
 .header-title {
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: var(--font-salsa);
+    text-shadow: var(--text-shadow);
 }
 
 .header-title:hover {
@@ -49,6 +50,6 @@
 
 .navbar-section a:hover {
     transition-duration: .8s;
-    color: pink;
+    color: var(--color-coral);
     text-shadow: .5rem .5rem rgb(185, 185, 185);
 }
