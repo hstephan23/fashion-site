@@ -12,6 +12,7 @@ import retroWoman2 from '../assets/futuristic-retro-woman-2.jpg';
 import medievalWoman from '../assets/medieval-woman.jpg';
 import bedouinWoman from '../assets/woman-bedouin.jpg';
 import blueWoman from '../assets/woman-blue.jpg';
+// import beachLady from '../assets/beach-lady.jpg';
 
 const Home = () => {
   let navigate = useNavigate();
@@ -30,13 +31,13 @@ const Home = () => {
       <Header></Header>
       <Parallax pages={4.4}>
         <ParallaxLayer speed={.1} sticky={{start: .5, end: 1}} factor={1}>
-          <h1>BHIG Fashion!</h1>
-          <h1>Find Your Style!</h1>
+          <h1 className= "home-title">BHIG Fashion</h1>
+          <h2 className= "home-title">SS23 SUMMER</h2>
         </ParallaxLayer>
         <ParallaxLayer speed={.1}  factor={1}
           style={{
             backgroundImage: `url(${french})`,
-            backgroundSize: 'cover'
+            backgroundSize: 'cover',
           }} 
           onClick={() => routeChange("")}>
         </ParallaxLayer>
@@ -46,7 +47,7 @@ const Home = () => {
             backgroundSize: 'cover'
           }}
           onClick={() => routeChange("Content")}>
-          <h1><span style={{color: 'pink'}}>Shop</span> French</h1>
+          <h1 className= "home-title"><span style={{color: 'pink'}}>Shop</span> French</h1>
         </ParallaxLayer>
         <ParallaxLayer offset={1.1} speed={1} factor={1}
           style={{
@@ -61,7 +62,7 @@ const Home = () => {
             backgroundSize: 'cover'
           }}
           onClick={() => routeChange("me")}>
-          <h1><span style={{color: 'cyan'}}>Shop</span> Modern-Retro</h1>
+          <h1 className= "home-title"><span style={{color: 'pink'}}>Shop</span> Modern-Retro</h1>
         </ParallaxLayer>
         <ParallaxLayer offset={2.2} speed={1} factor={1}
           style={{
@@ -69,7 +70,7 @@ const Home = () => {
             backgroundSize: 'cover'
           }}
           onClick={() => routeChange("signup")}>
-          <h1>Modern-Retro</h1>
+          <h1 className= "home-title"></h1>
         </ParallaxLayer>
         <ParallaxLayer offset={2.999} speed={.5} factor={1}
           style={{
@@ -77,7 +78,7 @@ const Home = () => {
             backgroundSize: 'cover'
           }}
           onClick={() => routeChange("login")}>
-          <h1><span style={{color: 'forestgreen'}}>Shop</span> 14th Century Modern</h1>
+          <h1 className= "home-title"><span style={{color: 'pink'}}>Shop</span> 14th Century Modern</h1>
         </ParallaxLayer>
         <ParallaxLayer offset={3.5} speed={.1} factor={1}
           style={{
@@ -85,7 +86,7 @@ const Home = () => {
             backgroundSize: 'cover'
           }}
           onClick={() => routeChange("content")}>
-          <h1><span style={{color: 'goldenrod'}}>Shop</span> Bedouin</h1>
+          <h1 className= "home-title"><span style={{color: 'pink'}}>Shop</span> Bedouin</h1>
         </ParallaxLayer>
       </Parallax>
     </div>
