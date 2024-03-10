@@ -1,3 +1,5 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 const Content = () => {
     const [content, setContent] = useState('');
     const [loading, setLoading] = useState(true);
