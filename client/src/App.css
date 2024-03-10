@@ -59,3 +59,21 @@
 .read-the-docs {
   color: #888;
 }
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.footer {
+  position: fixed;
+  background-color: var(--color-brown);
+  bottom: 0em;
+  width: 100%;
+  text-align: center;
+}

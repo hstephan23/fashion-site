@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_ARTICLES } from '../utils/queries';
+import { QUERY_ARTICLES } from '../../utils/queries';
 
-import Article from '../components/Article';
+import Article from '../Article';
 
 const ArticleList = () => {
     const [state, dispatch] = useStoreContext();
