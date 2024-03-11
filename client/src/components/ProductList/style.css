@@ -10,8 +10,9 @@
     box-shadow: 1em 1em rgba(0, 0, 0, 0.1);
     padding: 1em;
     margin: 1em;
-    height: 24em;
+    height: 1em;
     width: 16em;
+    justify-content: space-between;
 }
 
 .card-image {

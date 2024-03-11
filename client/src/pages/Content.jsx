@@ -17,7 +17,7 @@ const Content = () => {
       console.log("Fetching Articles");
       const fetchContent = async () => {
         try {
-          const response = await axios.get(`https://jsonplaceholder.typicode.com/users`);
+          const response = await axios.get(`https://fashion4.p.rapidapi.com/v1/results`);
           console.log(response);
           // setContent(response.data);
           // setLoading(false);
@@ -53,7 +53,7 @@ const Content = () => {
             <label htmlFor="fname">First Name</label>
           </div>
           <div className="col-75">
-            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+            <input type="text" id="fname" name="firstname" placeholder="type first name..">
             </input>
           </div>
         </div>
@@ -62,25 +62,14 @@ const Content = () => {
             <label htmlFor="lname">Last Name</label>
           </div>
           <div className="col-75">
-            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            <input type="text" id="lname" name="lastname" placeholder="type last name..">
             </input>
           </div>
         </div>
+       
         <div className="row">
           <div className="col-25">
-            <label htmlFor="country">Country</label>
-          </div>
-          <div className="col-75">
-            <select id="country" name="country">
-              <option value="australia">Australia</option>
-              <option value="canada">Canada</option>
-              <option value="usa">USA</option>
-            </select>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Subject</label>
+            <label htmlFor="subject">Blog</label>
           </div>
           <div className="col-75">
             <textarea id="subject" name="subject" placeholder="Write something.."></textarea>

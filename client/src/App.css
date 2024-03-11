@@ -82,14 +82,26 @@
   text-shadow: var(--text-shadow);
 }
 
-.login-form {
+.form-input {
+  font-family: var(--font-oswald);
+  font-size: 100%;
+  display: grid;
+  display: table-column-group;
+  border-radius: 0%;
+  box-sizing: content-box;
+  padding: 2rem;
+  margin: 2rem;
+  color: var(--color-black);
+}
+
+/* .login-form {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   height: 5em;
-}
+} */
 
 .login-signup-menu {
   text-align: center;
@@ -102,6 +114,13 @@
 }
 
 .login-signup-menu:hover {
-  transition-duration: .8s;
+  /* transition-duration: .8s; */
   text-decoration: underline;
+}
+
+.signup {
+  font-family: var(--font-riot);
+  font-size: 150%;
+  color: var(--color-pink);
+
 }
