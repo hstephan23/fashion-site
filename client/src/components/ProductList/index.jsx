@@ -50,7 +50,7 @@ const ProductList = () => {
 
       return (
         <div>
-            <h2>{currentCategory} Products:</h2>
+            <h2 className='product-title'>{currentCategory} Shop Products</h2>
             {state.products.length ? (
                 <div className="flex-row products-list">
                     {filterProducts().map((product) => (
