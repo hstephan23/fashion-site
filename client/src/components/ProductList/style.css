@@ -12,8 +12,12 @@
     margin: 1em;
     height: 1em;
     width: 16em;
-    justify-content: space-between;
+   text-align: center;
+    
+    
+   
 }
+
 
 .card-image {
     height: 16em;

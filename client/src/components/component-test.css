@@ -31,6 +31,8 @@
 input {
     height: 2em;
     width: 80%;
+    margin: 1em;
+
 }
 
 .flex-row {
@@ -40,4 +42,11 @@ input {
     align-items: center;
     justify-content: space-around;
     height: 5em;
+}
+
+.blogs-main {
+    background-image: url("../assets/fashion.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

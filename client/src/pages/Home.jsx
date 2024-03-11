@@ -35,7 +35,7 @@ const Home = () => {
       <Parallax pages={6.1}>
         <ParallaxLayer speed={.1} sticky={{start: .3, end: 5}} factor={1}>
           <h1 className="title splash-title">BHIG Fashion</h1>
-          <h2 className="title splash-title">SS23 SUMMER</h2>
+          <h2 className="title splash-title">SS24 SUMMER</h2>
         </ParallaxLayer>
         <ParallaxLayer speed={.1}  factor={1}
           style={{

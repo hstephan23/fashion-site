@@ -21,7 +21,6 @@
   --color-purple: purple;
   --color-black: black;
   --color-brown: rgb(208, 174, 174);
-  --text-shadow: .2rem .2rem rgba(104, 104, 104, 0.491);
 }
 
 .logo {
@@ -88,9 +87,10 @@
   display: grid;
   display: table-column-group;
   border-radius: 0%;
-  box-sizing: content-box;
+  box-sizing: border-box;
   padding: 2rem;
-  margin: 2rem;
+  margin: 1rem;
+  text-align: left;
   color: var(--color-black);
 }
 
@@ -106,11 +106,14 @@
 .login-signup-menu {
   text-align: center;
   color: black;
+  margin: center;
 }
 
 .login-signup-text {
-  font-family: var(--font-riot);
+  font-family: var(--font-cursive);
   font-size: 150%;
+  margin-bottom: -10%;
+  color: var(--color-black);
 }
 
 .login-signup-menu:hover {
@@ -118,9 +121,9 @@
   text-decoration: underline;
 }
 
-.signup {
+/* .signup {
   font-family: var(--font-riot);
   font-size: 150%;
   color: var(--color-pink);
 
-}
+} */
