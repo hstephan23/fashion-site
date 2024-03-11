@@ -1,5 +1,5 @@
-// import './component-test.css';
-import Navbar from './Navbar';
+import './style.css';
+import Navbar from '../Navbar';
 
 function Header() {
   return (

@@ -12,6 +12,8 @@ import Profile from './pages/Profile';
 import Content from './pages/Content';
 import OrderHistory from './pages/OrderHistory.jsx';
 import CurrentOrder from './pages/CurrentOrder.jsx';
+import Shop from './pages/Shop.jsx';
+
 import Cart from './components/Cart/index.jsx'
 
 // Define the router object which will control the Provider's ability to display certain pages to match the proper URLs
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
         element: <Content/>
       },
       {
+        path: '/shop',
+        element: <Shop/>
+      },
+      {
         path: '/signup',
         element: <Signup/>
       },
@@ -49,10 +55,10 @@ const router = createBrowserRouter([
         path: '/cart',
         element: <CurrentOrder />
       },
-      {
-        path: '/order',
-        element: <OrderHistory/>
-      }
+      // {
+      //   path: '/order',
+      //   element: <OrderHistory/>
+      // }
     ],
   },
 ]);

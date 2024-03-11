@@ -49,11 +49,11 @@ const CartItem = ({ item }) => {
           <span>Qty:</span>
           <input
             type="number"
-            placeholder="1"
+            placeholder="0"
             value={item.purchaseQuantity}
             onChange={onChange}
           />
-          <span
+          <span className="trash-icon"
             role="img"
             aria-label="trash"
             onClick={() => removeFromCart(item)}

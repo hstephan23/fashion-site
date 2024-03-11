@@ -1,5 +1,34 @@
 import { gql } from '@apollo/client';
 
+export const QUERY_ALL_PRODUCTS = gql`
+    query allProducts {
+        products {
+            _id
+            name
+            description
+            image
+            price
+            quantity
+            category {
+                name
+            }
+        }
+    }
+`;
+
+export const QUERY_SINGLE_PRODUCT = gql`
+    query singleProduct($productID: ID!) {
+        products(productID: $productID) {
+            name
+            description
+            image
+            price
+            quantity
+            category
+        }
+    }
+`;
+
 export const QUERY_USERS = gql`
     query allUsers {
         users {
@@ -38,31 +67,6 @@ export const QUERY_SINGLE_ARTICLE = gql`
             _id
             userID
             url
-        }
-    }
-`;
-
-export const QUERY_PRODUCTS = gql`
-    query allProducts {
-        _id
-        name
-        description
-        image
-        price
-        quantity
-        category
-    }
-`;
-
-export const QUERY_SINGLE_PRODUCT = gql`
-    query singleProduct($productID: ID!) {
-        product(productID: $productID) {
-            name
-            description
-            image
-            price
-            quantity
-            category
         }
     }
 `;

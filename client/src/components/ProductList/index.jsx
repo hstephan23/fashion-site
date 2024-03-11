@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
-import ProductItem from './ProductItem';
-import { useStoreContext } from '../utils/GlobalState';
-import { UPDATE_PRODUCTS } from '../utils/actions';
+import ProductItem from '../ProductItem';
+import { useStoreContext } from '../../utils/GlobalState';
+import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../utils/queries';
-import { idbPromise } from '../utils/helpers';
+import { QUERY_ALL_PRODUCTS } from '../../utils/queries';
+import { idbPromise } from '../../utils/helpers';
+
+import './style.css';
 
 const ProductList = () => {
     const [state, dispatch]  = useStoreContext();
-    const { loading, data } = useQuery(QUERY_PRODUCTS);
+    const { loading, error, data } = useQuery(QUERY_ALL_PRODUCTS);
     const { currentCategory } = state;
 
     useEffect(() => {
@@ -37,6 +39,8 @@ const ProductList = () => {
 
         return state.products.filter((product) => product.category._id === currentCategory);
       }
+      
+      data ? console.log("Hello World " + data.products) : console.error(error);
 
       if(loading) {
         return (
@@ -46,7 +50,7 @@ const ProductList = () => {
 
       return (
         <div>
-            <h2>{currentCategory} Products: </h2>
+            <h2>{currentCategory} Products:</h2>
             {state.products.length ? (
                 <div className="flex-row products-list">
                     {filterProducts().map((product) => (
@@ -55,7 +59,7 @@ const ProductList = () => {
                             _id={product._id}
                             name={product.name}
                             description={product.description}
-                            image={product.imgae}
+                            image={product.image}
                             price={product.price}
                             quantity={product.quantity}
                             category={product.category}
