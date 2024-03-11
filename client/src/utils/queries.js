@@ -1,4 +1,31 @@
-import { gql } from '@apollo/client';
+import { gql, useQuery } from '@apollo/client';
+
+export const QUERY_PRODUCTS = gql`
+    query getProducts {
+        product {
+            _id
+            name
+            description
+            image
+            price
+            quantity
+            category
+        }
+    }
+`;
+
+export const QUERY_SINGLE_PRODUCT = gql`
+    query singleProduct($productID: ID!) {
+        product(productID: $productID) {
+            name
+            description
+            image
+            price
+            quantity
+            category
+        }
+    }
+`;
 
 export const QUERY_USERS = gql`
     query allUsers {
@@ -38,31 +65,6 @@ export const QUERY_SINGLE_ARTICLE = gql`
             _id
             userID
             url
-        }
-    }
-`;
-
-export const QUERY_PRODUCTS = gql`
-    query allProducts {
-        _id
-        name
-        description
-        image
-        price
-        quantity
-        category
-    }
-`;
-
-export const QUERY_SINGLE_PRODUCT = gql`
-    query singleProduct($productID: ID!) {
-        product(productID: $productID) {
-            name
-            description
-            image
-            price
-            quantity
-            category
         }
     }
 `;

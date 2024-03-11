@@ -21,7 +21,11 @@ export default function Nav() {
           </div>
           
           <div className="nav-element" style={linkStyle}>
-            <a href="/content">Shop</a>
+            <a href="/shop">Shop</a>
+          </div>
+
+          <div className="nav-element" style={linkStyle}>
+            <a href="/blog">Blog</a>
           </div>
 
           <div className="nav-element nav-hover" style={linkStyle}>

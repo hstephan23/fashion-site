@@ -1,6 +1,10 @@
+import ProductList from "../components/ProductList";
+
 const Shop = () => {
     return (
-      <div>Shop Here</div>
+      <div>Shop Here
+        <ProductList></ProductList>
+      </div>
     )
  }
   
