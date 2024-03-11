@@ -1,42 +1,90 @@
-// import './component-test.css';
+import Auth from "../../utils/auth";
+import {Link } from "react-router-dom";
+
 export default function Nav() {
-    const linkStyle = { border: '1px black', padding: '5px' };
-
-    return (
-      <nav className="main-header-menu">
-        <section className="navbar-section">
-          <div className="nav-element" style={linkStyle}>
-            <a href="/">Home</a>
-          </div>
-
-          <div className="nav-element nav-hover" style={linkStyle}>
-            <a href="/login">Login</a>
-            <div id="drop-signup" className="drop-menu" style={linkStyle}>
-              <a href="/signup">Sign-Up</a>
+  const linkStyle = { border: '1px black', padding: '5px' };
+  function showNavigation(){
+    if(Auth.loggedIn()){
+      return (
+        <nav className="main-header-menu">
+          <section className="navbar-section">
+            <div className="nav-element" style={linkStyle}>
+              <Link to="/">Home</Link>
             </div>
-          </div>
-          
-          <div className="nav-element" style={linkStyle}>
-            <a id="profile-nav" href="/me">Profile</a>
-          </div>
-          
-          <div className="nav-element" style={linkStyle}>
-            <a href="/shop">Shop</a>
-          </div>
 
-          <div className="nav-element" style={linkStyle}>
-            <a href="/blog">Blog</a>
-          </div>
+            <div className="nav-element nav-hover" style={linkStyle}>
+              <Link to="/" onClick={() => Auth.logout()}>Logout</Link>
+              <div id="drop-signup" className="drop-menu" style={linkStyle}>
+                <Link to="/signup">Sign-Up</Link>
+              </div>
+            </div>
+            
+            <div className="nav-element" style={linkStyle}>
+              <Link id="profile-nav" to="/me">Profile</Link>
+            </div>
+            
+            <div className="nav-element" style={linkStyle}>
+              <Link to="/shop">Shop</Link>
+            </div>
 
-          <div className="nav-element nav-hover" style={linkStyle}>
-            <a href="/cart">Cart</a>
-            {/* <div id="drop-cart" className="drop-menu">
-              <a href="/order">Order History</a>
-              <a href="/cart">Check Out</a>
-            </div> */}
-          </div>
-        </section>
-      </nav>
-    );
+            <div className="nav-element" style={linkStyle}>
+              <Link to="/blog">Blog</Link>
+            </div>
+
+            <div className="nav-element nav-hover" style={linkStyle}>
+              <Link to="/cart">Cart</Link>
+              <div id="drop-cart" className="drop-menu">
+                <Link to="/order">Order History</Link>
+                <Link to="/cart">Check Out</Link>
+              </div>
+            </div>
+          </section>
+        </nav>
+      );
+    }
+    else{
+      return (
+        <nav className="main-header-menu">
+          <section className="navbar-section">
+            <div className="nav-element" style={linkStyle}>
+              <Link to="/">Home</Link>
+            </div>
+
+            <div className="nav-element nav-hover" style={linkStyle}>
+              <Link to="/login">Login</Link>
+              <div id="drop-signup" className="drop-menu" style={linkStyle}>
+                <Link to="/signup">Sign-Up</Link>
+              </div>
+            </div>
+            
+            <div className="nav-element" style={linkStyle}>
+              <Link id="profile-nav" to="/me">Profile</Link>
+            </div>
+            
+            <div className="nav-element" style={linkStyle}>
+              <Link to="/shop">Shop</Link>
+            </div>
+
+            <div className="nav-element" style={linkStyle}>
+              <Link to="/blog">Blog</Link>
+            </div>
+
+            <div className="nav-element nav-hover" style={linkStyle}>
+              <Link to="/cart">Cart</Link>
+              <div id="drop-cart" className="drop-menu">
+                <Link to="/order">Order History</Link>
+                <Link to="/cart">Check Out</Link>
+              </div>
+            </div>
+          </section>
+        </nav>
+      );
+    }
+  }
+
+  return (<>
+    {showNavigation()}
+    </>
+  );
   }
   
