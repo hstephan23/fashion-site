@@ -55,9 +55,12 @@ export const QUERY_SINGLE_USER = gql`
 
 export const QUERY_ARTICLES = gql`
     query allArticles {
-        _id
-        userID
-        url
+        articles {
+            _id
+            userID
+            url
+        }
+        
     }
 `;
 
