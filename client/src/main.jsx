@@ -55,10 +55,10 @@ const router = createBrowserRouter([
         path: '/cart',
         element: <CurrentOrder />
       },
-      {
-        path: '/order',
-        element: <OrderHistory/>
-      }
+      // {
+      //   path: '/order',
+      //   element: <OrderHistory/>
+      // }
     ],
   },
 ]);

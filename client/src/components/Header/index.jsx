@@ -1,4 +1,4 @@
-// import './component-test.css';
+import './style.css';
 import Navbar from '../Navbar';
 
 function Header() {

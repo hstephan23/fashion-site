@@ -52,10 +52,6 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
 .read-the-docs {
   color: #888;
 }
@@ -68,12 +64,44 @@
 .container {
   height: 100%;
   width: 100%;
+  margin-top: 10em;
 }
 
-.footer {
-  position: fixed;
-  background-color: var(--color-brown);
-  bottom: 0em;
-  width: 100%;
+.splash-title {
+  margin-left: 5%;
+}
+
+.home-title {
+  margin-left: 25%;
+}
+
+.title {
+  font-family: var(--font-oswald);
+  font-size: 300%;
+  color: var(--color-black);
+  text-shadow: var(--text-shadow);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  height: 5em;
+}
+
+.login-signup-menu {
   text-align: center;
+  color: black;
+}
+
+.login-signup-text {
+  font-family: var(--font-riot);
+  font-size: 150%;
+}
+
+.login-signup-menu:hover {
+  transition-duration: .8s;
+  text-decoration: underline;
 }

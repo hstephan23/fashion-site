@@ -30,10 +30,10 @@ export default function Nav() {
 
           <div className="nav-element nav-hover" style={linkStyle}>
             <a href="/cart">Cart</a>
-            <div id="drop-cart" className="drop-menu">
+            {/* <div id="drop-cart" className="drop-menu">
               <a href="/order">Order History</a>
               <a href="/cart">Check Out</a>
-            </div>
+            </div> */}
           </div>
         </section>
       </nav>

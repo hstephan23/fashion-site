@@ -3,7 +3,7 @@ import Cart from '../components/Cart';
 
 const Shop = () => {
     return (
-      <div>Shop Here
+      <div>
         <Cart></Cart>
         <ProductList></ProductList>
       </div>
