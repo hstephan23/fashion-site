@@ -29,7 +29,7 @@ function Detail() {
   }, [products, data, dispatch, id]);
 
   return (
-    <>
+    <div>
       {currentProduct ? (
         <div className="container my-1">
           <Link to="/">← Back to Products</Link>
@@ -51,7 +51,7 @@ function Detail() {
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
-    </>
+    </div>
   );
 }
 
