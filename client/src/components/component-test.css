@@ -84,3 +84,26 @@
 /* .nav-hover:hover + #drop-cart {
     display: flex;
 } */
+
+.card-body {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    height: 5rem;
+    width: 50rem;
+}
+
+.card-body form {
+    height: 100%;
+    width: 100%;
+}
+
+.card-body button {
+    height: 100%;
+    width: 20%;
+}
+
+input {
+    height: 100%;
+    width: 40%;
+}

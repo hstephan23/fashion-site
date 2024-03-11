@@ -1,22 +1,24 @@
-import { gql, useQuery } from '@apollo/client';
+import { gql } from '@apollo/client';
 
-export const QUERY_PRODUCTS = gql`
-    query getProducts {
-        product {
+export const QUERY_ALL_PRODUCTS = gql`
+    query allProducts {
+        products {
             _id
             name
             description
             image
             price
             quantity
-            category
+            category {
+                name
+            }
         }
     }
 `;
 
 export const QUERY_SINGLE_PRODUCT = gql`
     query singleProduct($productID: ID!) {
-        product(productID: $productID) {
+        products(productID: $productID) {
             name
             description
             image

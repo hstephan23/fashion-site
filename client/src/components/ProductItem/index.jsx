@@ -17,7 +17,6 @@ const ProductItem = (item) => {
         category
     } = item;
 
-    console.log(`Item: ${item}`);
     const { cart } = state;
 
     const addToCart = () => {
@@ -53,9 +52,10 @@ const ProductItem = (item) => {
           </Link> */}
           <div>
             <div className="product-data">
-                <h3 className="product-category">{category}</h3>
+                <h1>{item.category.name ? {category} : ""}</h1>
+                {/* <h3 className="product-category">{category}</h3> */}
                 <h3 className="product-quantity">{quantity} {pluralize("item", quantity)} in stock
-                    <span className="product-price">${price}</span>
+                    <span className="product-price"> ${price}</span>
                 </h3>
             </div>
           </div>
