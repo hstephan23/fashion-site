@@ -49,31 +49,44 @@ const Login = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
+              <div>
+                <form className='login-form' onSubmit={handleFormSubmit}>
+                  <div className='form-el-div'>
+                    <label className='form-label' for='email'>Email: </label>
+                    <input
+                      className="form-input"
+                      placeholder="Email"
+                      id='email'
+                      name="email"
+                      type="email"
+                      value={formState.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div>
+                    <label className='form-label' for='password'>Password: </label>
+                    <input
+                      className="form-input"
+                      placeholder="******"
+                      id='password'
+                      name="password"
+                      type="password"
+                      value={formState.password}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <button
+                    className="btn btn-block btn-info"
+                    style={{ cursor: 'pointer' }}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </form>
+                <div className="login-signup-menu">
+                  <a className="login-signup-text" href="/signup">No Account? Sign-Up!</a>
+                </div>
+              </div>
             )}
 
             {error ? (

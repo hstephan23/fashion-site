@@ -1,0 +1,27 @@
+.footer {
+    position: fixed;
+    background-color: var(--color-brown);
+    border-top: .1rem solid black;
+    /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+	animation: 15s ease gradAnim infinite;
+    bottom: 0em;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-title {
+    font-size: 150%;
+    margin: .5rem;
+  }
+
+  @keyframes gradAnim {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+  }

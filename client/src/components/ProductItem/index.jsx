@@ -7,6 +7,7 @@ import { idbPromise } from "../../utils/helpers";
 
 const ProductItem = (item) => {
     const [state, dispatch] = useStoreContext();
+
     // let { item } = useParams();
     const {
         _id,
@@ -42,7 +43,7 @@ const ProductItem = (item) => {
 
     return (
         <div className="card px-1 py-1">
-            <img
+            <img className='card-image'
               alt={name}
               src={`/images/${image}`}
             />
@@ -59,7 +60,7 @@ const ProductItem = (item) => {
                 </h3>
             </div>
           </div>
-          <button onClick={addToCart}>Add to cart</button>
+          <button className='add-cart-button' onClick={addToCart}>Add to cart</button>
         </div>
     );
 }

@@ -6,6 +6,8 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ALL_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 
+import './style.css';
+
 const ProductList = () => {
     const [state, dispatch]  = useStoreContext();
     const { loading, error, data } = useQuery(QUERY_ALL_PRODUCTS);
