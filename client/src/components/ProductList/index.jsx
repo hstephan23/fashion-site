@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import ProductItem from './ProductItem';
+import ProductItem from '../ProductItem';
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
@@ -11,24 +11,24 @@ const ProductList = () => {
     const { loading, data } = useQuery(QUERY_PRODUCTS);
     const { currentCategory } = state;
 
-    useEffect(() => {
-        if (data) {
-          dispatch({
-            type: UPDATE_PRODUCTS,
-            products: data.products,
-          });
-          data.products.forEach((product) => {
-            idbPromise('products', 'put', product);
-          });
-        } else if (!loading) {
-          idbPromise('products', 'get').then((products) => {
-            dispatch({
-              type: UPDATE_PRODUCTS,
-              products: products,
-            });
-          });
-        }
-      }, [data, loading, dispatch]);
+    // useEffect(() => {
+    //     if (data) {
+    //       dispatch({
+    //         type: UPDATE_PRODUCTS,
+    //         products: data.products,
+    //       });
+    //       data.products.forEach((product) => {
+    //         idbPromise('products', 'put', product);
+    //       });
+    //     } else if (!loading) {
+    //       idbPromise('products', 'get').then((products) => {
+    //         dispatch({
+    //           type: UPDATE_PRODUCTS,
+    //           products: products,
+    //         });
+    //       });
+    //     }
+    //   }, [data, loading, dispatch]);
 
       const filterProducts = () => {
         if(!currentCategory) {
@@ -37,6 +37,8 @@ const ProductList = () => {
 
         return state.products.filter((product) => product.category._id === currentCategory);
       }
+    
+      console.log("Hello World " + data);
 
       if(loading) {
         return (
@@ -46,10 +48,11 @@ const ProductList = () => {
 
       return (
         <div>
-            <h2>{currentCategory} Products: </h2>
+            <h2>{currentCategory ? currentCategory : "All"} Products: </h2>
             {state.products.length ? (
                 <div className="flex-row products-list">
-                    {filterProducts().map((product) => (
+                    {/* {filterProducts() */
+                      state.products.map((product) => (
                         <ProductItem 
                             key={product._id}
                             _id={product._id}

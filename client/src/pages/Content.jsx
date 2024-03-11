@@ -11,6 +11,7 @@ const Content = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+      console.log("Fetching Articles");
       const fetchContent = async () => {
         try {
           const response = await axios.get('https://your-api-url/content');

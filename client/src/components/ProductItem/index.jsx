@@ -1,3 +1,4 @@
+import { useParams } from 'react';
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
@@ -6,7 +7,7 @@ import { idbPromise } from "../../utils/helpers";
 
 const ProductItem = (item) => {
     const [state, dispatch] = useStoreContext();
-
+    // let { item } = useParams();
     const {
         _id,
         name,
@@ -16,6 +17,7 @@ const ProductItem = (item) => {
         category
     } = item;
 
+    console.log(`Item: ${item}`);
     const { cart } = state;
 
     const addToCart = () => {
@@ -41,13 +43,14 @@ const ProductItem = (item) => {
 
     return (
         <div className="card px-1 py-1">
-          <Link to={`/products/${_id}`}>
             <img
               alt={name}
               src={`/images/${image}`}
             />
             <p className="product-name">{name}</p>
-          </Link>
+          {/* <Link to={`/products/${_id}`}>
+            
+          </Link> */}
           <div>
             <div className="product-data">
                 <h3 className="product-category">{category}</h3>
