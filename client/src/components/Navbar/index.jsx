@@ -28,15 +28,11 @@ export default function Nav() {
             </div>
 
             <div className="nav-element" style={linkStyle}>
-              <Link to="/blog">Blog</Link>
+              <Link to="/content">Blog</Link>
             </div>
 
             <div className="nav-element nav-hover" style={linkStyle}>
               <Link to="/cart">Cart</Link>
-              <div id="drop-cart" className="drop-menu">
-                <Link to="/order">Order History</Link>
-                <Link to="/cart">Check Out</Link>
-              </div>
             </div>
           </section>
         </nav>
@@ -66,15 +62,15 @@ export default function Nav() {
             </div>
 
             <div className="nav-element" style={linkStyle}>
-              <Link to="/blog">Blog</Link>
+              <Link to="/content">Blog</Link>
             </div>
 
             <div className="nav-element nav-hover" style={linkStyle}>
               <Link to="/cart">Cart</Link>
-              <div id="drop-cart" className="drop-menu">
+              {/* <div id="drop-cart" className="drop-menu">
                 <Link to="/order">Order History</Link>
                 <Link to="/cart">Check Out</Link>
-              </div>
+              </div> */}
             </div>
           </section>
         </nav>

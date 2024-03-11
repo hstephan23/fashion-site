@@ -40,7 +40,7 @@ const ProductList = () => {
         return state.products.filter((product) => product.category._id === currentCategory);
       }
       
-      data ? console.log("Hello World " + data.products) : console.error(error);
+      // data ? console.log("Hello World " + data.products) : console.error(error);
 
       if(loading) {
         return (
