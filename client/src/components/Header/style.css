@@ -1,6 +1,6 @@
 .header {
     background-color: var(--color-brown);
-    border-bottom: .1rem solid black;
+    border-bottom: .1rem solid whitesmoke;
     display: flex;
     flex-direction: row;
     align-items: center;

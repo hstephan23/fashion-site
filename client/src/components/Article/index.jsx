@@ -57,11 +57,9 @@ import './style.css';
 //    }, []);
 
    return (
-     <div className='article-div' key={article.key}>
+     <div className='article-div' key={article.index}>
           <h2 className='article-desc'>{article.description}</h2>
-          <h3 className='article-content'>{article.content}</h3>
           <img className='article-img' src={article.imgURL}></img>
-          <h1 className='article-title'>Author: {article.author}</h1>
           <a className='article-url' href={article.url}>{article.url}</a>
      </div>
    );
