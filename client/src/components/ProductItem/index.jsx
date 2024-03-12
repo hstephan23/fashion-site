@@ -1,4 +1,3 @@
-import { useParams } from 'react';
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
@@ -7,8 +6,7 @@ import { idbPromise } from "../../utils/helpers";
 
 const ProductItem = (item) => {
     const [state, dispatch] = useStoreContext();
-
-    // let { item } = useParams();
+    
     const {
         _id,
         name,

@@ -67,8 +67,7 @@ const resolvers = {
                     currency: 'usd',
                     product_data: {
                         name: product.name,
-                        description: product.description,
-                        images: [`${url}/images/${product.image}`]
+                        image: [`${url}/images/${product.image}`]
                     },
                     unit_amount: product.price * 100,
                 },
@@ -83,7 +82,8 @@ const resolvers = {
             success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${url}/`,
         });
-
+        
+        console.log(session);
         return { session: session.id };
       }
     },

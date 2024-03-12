@@ -28,4 +28,14 @@
 .product-title {
     margin-top: 5em;
     text-align: center;
+    color: black;
+    font-family: cursive;
+}
+
+.shop-background {
+    background-image: url("../../../public/images/summersale1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
 }

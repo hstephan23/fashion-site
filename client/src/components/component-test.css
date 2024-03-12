@@ -34,6 +34,68 @@ input {
     margin: 1em;
 
 }
+/* ------------------- BLOG ----------------- */
+.blog-parent-container {
+    display: flex;
+    align-items: top;
+    justify-content: space-evenly;
+    height: 100%;
+}
+.blog-container {
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+}
+.blog-post-container {
+    border: .1rem solid black;
+    height: 50%;
+    margin-top: 1em;
+}
+.blog-form-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1em;
+    height: 30%;
+    width: 100%;
+}
+.blog-form {
+    height: 100%;
+    width: 100%;
+}
+.blog-form-container .row {
+    margin: 1% 2%;
+    height: 15%;
+    width: auto;
+}
+.form-submit {
+    background-color: white;
+    border: .1rem solid black;
+    border-radius: 2em;
+    width: 25%;
+}
+.form-submit:hover {
+    background-color: aquamarine;
+}
+#subject {
+    height: 100%;
+    width: 100%;
+}
+
+.article-container {
+    position: fixed;
+    top: 5em;
+    bottom: 5em;
+    right: 0;
+    overflow-y: scroll;
+    max-height: 100vh;
+    width: 50%;
+}
 
 .flex-row {
     display: flex;
@@ -42,6 +104,8 @@ input {
     align-items: center;
     justify-content: space-around;
     height: 5em;
+    color: black;
+    font-family: cursive;
 }
 
 .blogs-main {
@@ -50,3 +114,6 @@ input {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+/* ------------------- SHOP ----------------- */
+

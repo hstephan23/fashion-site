@@ -1,0 +1,12 @@
+.article-div {
+    padding: 2em;
+    margin: 1em;
+}
+.article-img {
+    height: auto;
+    width: 100%;
+}
+.article-url {
+    color: whitesmoke;
+    text-decoration: none;
+}
