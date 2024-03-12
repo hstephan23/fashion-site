@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const { orderSchema } = require('./Order');
+const { Order }  = require('./Order');
 const bcrypt = require('bcrypt');
 
 const userScehma = new Schema({
@@ -31,10 +31,7 @@ const userScehma = new Schema({
         match: [/.+@.+\..+/, 'Must match an email address!'],
     },
     // orders: [orderSchema],
-    orders: {
-        type: Schema.Types.ObjectId,
-        ref: 'Order',
-    }
+    orders: [Order.schema]
 });
 
 userScehma.pre('save', async function (next) {

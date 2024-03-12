@@ -4,8 +4,8 @@ import Cart from '../components/Cart';
 const Shop = () => {
     return (
       <div>
-        <Cart></Cart>
-        <ProductList></ProductList>
+        <ProductList />
+        <Cart />
       </div>
     )
  }
