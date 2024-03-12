@@ -10,17 +10,17 @@ import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 
 // stripePromise returns a promise with the stripe object as soon as the Stripe package loads
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripePromise = loadStripe('pk_test_51OtCnbABWVnjjKkprFR7p2eP1prK8Wnw6IyqOsC0JRI0JY41iC0qiTSw04pT0XI5yAtKYe0GYDmrzPkx4gVR9ZVR00ua2E74z2');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
-  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-
+  const [checkout, { data }] = useLazyQuery(QUERY_CHECKOUT);
   // We check to see if there is a data object that exists, if so this means that a checkout session was returned from the backend
   // Then we should redirect to the checkout with a reference to our session id
   useEffect(() => {
+    console.log('getting data');
+    console.log(data);
     if (data) {
-      console.log(data);
       stripePromise.then((res) => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
@@ -34,7 +34,7 @@ const Cart = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      console.log("----------------------" + cart[0]._id);
+      // console.log("----------------------" + cart[0]._id);
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
 
@@ -46,7 +46,7 @@ const Cart = () => {
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
   }
-
+  console.log(state.cart);
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach((item) => {
@@ -60,10 +60,19 @@ const Cart = () => {
   // When the submit checkout method is invoked, loop through each item in the cart
   // Add each item id to the productIds array and then invoke the getCheckout query passing an object containing the id for all our products
   function submitCheckout() {
-    getCheckout({
+    const new_cart = [...state.cart].map((item) => {
+      delete item ["category"]
+      return item}
+    );
+    console.log(new_cart);
+    console.log({variables: { 
+      products: new_cart,
+    }})
+    checkout({
       variables: { 
-        products: [...state.cart],
-      },
+        products: new_cart,
+      }
+  
     });
   }
 

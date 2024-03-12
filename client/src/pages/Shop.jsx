@@ -5,8 +5,8 @@ import Cart from '../components/Cart';
 const Shop = () => {
     return (
       <div className="shop-background">
-        <Cart></Cart>
-        <ProductList></ProductList>
+        <ProductList />
+        <Cart />
       </div>
     )
  }
