@@ -5,6 +5,7 @@ const categorySeeds = require('./categorySeeds.json');
 const furnitureSeeds = require('./furnitureSeeds.json');
 const tshirtSeeds = require('./t-shirtSeeds.json');
 const userSeeds = require('./userSeeds.json');
+const clothingSeeds = require('./clothingSeeds.json');
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
@@ -14,7 +15,7 @@ db.once('open', async () => {
     await cleanDB('Category',"categories");
 
     await User.create(userSeeds);
-    const products = [...electronicSeeds, ...furnitureSeeds, ...tshirtSeeds]; 
+    const products = [...clothingSeeds]; 
     await Product.create(products);
     const cats = await Category.create(categorySeeds);
 
@@ -34,9 +35,7 @@ db.once('open', async () => {
       };
     };
 
-    await setCat(electronicSeeds, 3);
-    await setCat(furnitureSeeds, 5);
-    await setCat(tshirtSeeds, 4);
+    await setCat(clothingSeeds, 1);
 
     console.log('all done!');
     process.exit(0);

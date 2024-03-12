@@ -12,13 +12,18 @@ import Articles from '../components/Article';
 
 const Content = () => {
     const [state, dispatch]  = useStoreContext();
-    const [postData, setPost] = useState([{}]);
+    const [postData, setPost] = useState();
     const [arts, setArticles] = useState([]);
     // const { loading, error, data } = useQuery(QUERY_POSTS);
     // const { loading, error, data } = useQuery(QUERY_ARTICLES);
-    const api_key = '075c77e26d82488997236d886c2e4b11';
+
     const fetchCategory = 'fashion';
-    
+    const api_key = '075c77e26d82488997236d886c2e4b11';
+    const newsAPIlink = `https://newsapi.org/v2/${'everything'}?q=${fetchCategory}&language=en&from=2024-02-11&sortBy=publishedAt&page=2&apiKey=075c77e26d82488997236d886c2e4b11`;
+
+    const test_api_key = "pub_399232ebf68850644cb83ed750fdd11b9477e";
+    const testAPIlink = `https://newsdata.io/api/1/news?q=${fetchCategory}?apikey=${test_api_key}`;
+
     let posts = [];
     let articles = [];
     
@@ -58,13 +63,12 @@ const Content = () => {
 
     useEffect(() => {
       console.log("Fetching Articles");
-      axios.get(`https://newsapi.org/v2/${'everything'}?q=${fetchCategory}&language=en&from=2024-02-11&sortBy=publishedAt&page=2&apiKey=075c77e26d82488997236d886c2e4b11`)
+      axios.get(`https://newsdata.io/api/1/news?q=${fetchCategory}&language=en&apikey=${test_api_key}`)
       .then((res) => {
-        const arts = res.data.articles;
+        const arts = res.data.results;
         for(let i = 0; i < 10; i++) {
           articles.push(arts[i]);
         }
-        console.log(articles);
         setArticles(articles);
       }).catch((error) => {
         console.error(error);
@@ -117,11 +121,9 @@ const Content = () => {
             {arts ? arts.map((article, index) => (
               <Articles 
                 // key={index}
-                author={article.author}
                 description={article.description}
-                content={article.content}
-                imgURL={article.urlToImage}
-                url={article.url}
+                imgURL={article.image_url}
+                url={article.link}
               />
               // <div>
               //   <h1>{article.author}</h1>

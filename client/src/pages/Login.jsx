@@ -42,7 +42,6 @@ const Login = (props) => {
     <main className="flex-row justify-center mb-4 blogs-main">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -50,39 +49,46 @@ const Login = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <div>
+              <div className='login-container'>
+                <h1 className=''>Login!</h1>
                 <form className='login-form' onSubmit={handleFormSubmit}>
-                  <div className='form-el-div'>
-                    <label className='form-label' for='email'>Email: </label>
-                    <input
-                      className="form-input"
-                      placeholder="Email"
-                      id='email'
-                      name="email"
-                      type="email"
-                      value={formState.email}
-                      onChange={handleChange}
-                    />
+                  <div className='form-div-container'>
+                    <div className='form-el-div'>
+                      <label className='form-label' for='email'>Email: </label>
+                      <input
+                        className="form-input"
+                        placeholder="Email"
+                        id='email'
+                        name="email"
+                        type="email"
+                        value={formState.email}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div>
+                      <label className='form-label' for='password'>Password: </label>
+                      <input
+                        className="form-input"
+                        placeholder="******"
+                        id='password'
+                        name="password"
+                        type="password"
+                        value={formState.password}
+                        onChange={handleChange}
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <label className='form-label' for='password'>Password: </label>
-                    <input
-                      className="form-input"
-                      placeholder="******"
-                      id='password'
-                      name="password"
-                      type="password"
-                      value={formState.password}
-                      onChange={handleChange}
-                    />
+                  <div className='form-div-container'>
+                    <button
+                      className="btn btn-block btn-info"
+                      style={{ cursor: 'pointer' }}
+                      type="submit"
+                    >
+                      Submit
+                    </button>
                   </div>
-                  <button
-                    className="btn btn-block btn-info"
-                    style={{ cursor: 'pointer' }}
-                    type="submit"
-                  >
-                    Submit
-                  </button>
+                  
+                  
                 </form>
                 <div className="login-signup-menu">
                   <a className="login-signup-text" href="/signup">No Account? Sign-Up!</a>

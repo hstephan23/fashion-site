@@ -1,9 +1,9 @@
 .footer {
     position: fixed;
     background-color: var(--color-brown);
-    border-top: .1rem solid black;
+    border-top: .1rem solid whitesmoke;
     /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
-	animation: 15s ease gradAnim infinite;
+	  /* animation: 15s ease gradAnim infinite; */
     bottom: 0em;
     width: 100%;
     text-align: center;

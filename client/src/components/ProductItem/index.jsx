@@ -43,7 +43,7 @@ const ProductItem = (item) => {
         <div className="card px-1 py-1">
             <img className='card-image'
               alt={name}
-              src={`${image}`}
+              src={`/images/${image}`}
             />
             <p className="product-name">{name}</p>
           {/* <Link to={`/products/${_id}`}>

@@ -1,26 +1,23 @@
 [
     {
-     "name":"Shirts"
-    
+        "name":"Clothing"
     },
     {
-     "name":"Pants"
-    
+        "name":"Pants"
     },
     {
-     "name":"shoes"
-    
+        "name": "Dresses"
+    },
+    {
+        "name":"shoes"
+    },
+    {
+        "name":"T-shirts"
     },
     {
      "name":"Electronics"
-    
-    },
-    {
-     "name":"T-shirts"
-    
     },
     {
      "name":"Furniture"
-    
     }    
 ]

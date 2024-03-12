@@ -124,3 +124,11 @@ export const QUERY_CHECKOUT = gql`
         }
     }
 `;
+
+export const QUERY_CATEGORIES = gql`
+    query getCategories {
+        category {
+            name
+        }
+    }
+`

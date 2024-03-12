@@ -1,12 +1,13 @@
 import ProductList from "../components/ProductList";
 import Cart from '../components/Cart';
-// import summersale from '../images/summersale.jpg';
+// import CategoryMenu from "../components/CategoryMenu";
 
 const Shop = () => {
     return (
       <div className="shop-background">
-        <ProductList />
-        <Cart />
+        {/* <CategoryMenu></CategoryMenu> */}
+        <Cart></Cart>
+        <ProductList></ProductList>
       </div>
     )
  }
