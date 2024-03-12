@@ -1,3 +1,6 @@
+// do we need password? 
+// user
+// products 
 const typeDefs = `
     type User {
         _id: ID!
@@ -26,7 +29,7 @@ const typeDefs = `
     }
 
     type Category {
-        _id: ID!
+        _id: ID
         name: String
     }
 
@@ -66,6 +69,7 @@ const typeDefs = `
         image: String
         price: Float
         quantity: Int
+        description: String
     }
 
     type Query {

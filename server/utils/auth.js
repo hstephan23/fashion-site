@@ -33,8 +33,8 @@ module.exports = {
   },
 
   // change what you want to save in the token 
-  signToken: function ({ email, username, _id }) {
-    const payload = { email, username, _id };
+  signToken: function ({ email, userName, _id }) {
+    const payload = { email, userName, _id };
     return jwt.sign({ authenticatedPerson: payload }, secret, { expiresIn: expiration });
   },
 };
