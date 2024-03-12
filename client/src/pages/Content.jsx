@@ -12,12 +12,14 @@ import Articles from '../components/Article';
 
 const Content = () => {
     const [state, dispatch]  = useStoreContext();
-    const [postData, setPost] = useState([{}]);
+    const [postData, setPost] = useState();
     const [arts, setArticles] = useState([]);
     // const { loading, error, data } = useQuery(QUERY_POSTS);
     // const { loading, error, data } = useQuery(QUERY_ARTICLES);
     const api_key = '075c77e26d82488997236d886c2e4b11';
     const fetchCategory = 'fashion';
+
+    const testAPIlink = "https://newsdata.io/api/1/news?apikey=YOUR_API_KEY&q=pegasus&language=e";
     
     let posts = [];
     let articles = [];

@@ -1,7 +1,11 @@
 .products-list {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    flex-wrap: wrap;
+    height: 70vh;
+    margin-left: 1em;
+    overflow-y: scroll;
+    width: 75%;
 }
 
 .card {
@@ -10,17 +14,23 @@
     box-shadow: 1em 1em rgba(0, 0, 0, 0.1);
     padding: 1em;
     margin: 1em;
-    height: 24em;
+    height: auto;
     width: 16em;
 }
 
 .card-image {
-    height: 16em;
-    width: 12em;
-    margin: 5% 0;
+    height: auto;
+    width: 100%;
 }
 
 .product-title {
-    margin-top: 5em;
     text-align: center;
+}
+
+.product-name {
+    color: var(--color-black);
+}
+
+.product-quantity {
+    color: black;
 }

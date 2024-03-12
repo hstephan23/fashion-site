@@ -1,0 +1,129 @@
+[
+    {
+        "name":"Ariella Taffeta Dress",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/ariella-taffeta-maxi-dress.webp",
+        "price": 59,
+        "quantity": 12
+    },
+    {
+        "name":"Cici Poplin Mini Dress",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/cici-poplin-mini-dress.webp",
+        "price": 52,
+        "quantity": 55
+    },
+    {
+        "name":"Silvery Summer Pant",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/shimmering-summer-pant.webp",
+        "price": 43,
+        "quantity": 103
+    },
+    {
+        "name":"Wide Leg Low Cut Pant",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/wide-leg-low-cut-pant.webp",
+        "price": 43,
+        "quantity": 65
+    },
+    {
+        "name":"High Heel Boot",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/low-ankle-high-heel-boot.webp",
+        "price": 39,
+        "quantity": 150
+    },
+    {
+        "name":"Knitted Cover-Toe Sandal",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/felt-knitted-cover-toe-sandal.webp",
+        "price": 35,
+        "quantity": 800
+    },
+    {
+        "name":"White Leather Shoes",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/white-leather-show.webp",
+        "price": 40,
+        "quantity": 600
+    },
+    {
+        "name":"Wide Leg Summer Pants",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/wide-leg-summer-pants.webp",
+        "price": 75,
+        "quantity": 130
+    },
+    {
+        "name":"Cotton Pants",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/generic-cotton-pants.webp",
+        "price": 65,
+        "quantity": 235
+    },
+    {
+        "name":"Linen Suit Pants",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/linen-suit-pant.webp",
+        "price": 80,
+        "quantity": 130
+    },
+    {
+        "name":"Traveler Cargo Pant",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/traveler-cargo-pant.webp",
+        "price": 75,
+        "quantity": 82
+    },
+    {
+        "name":"Dress Pant",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/speckled-dress-pant.webp",
+        "price": 120,
+        "quantity": 65
+    },
+    {
+        "name":"Cotton Traveler Pant",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/linen-cotton-traveler-pant.webp",
+        "price": 68,
+        "quantity": 55
+    },
+    {
+        "name":"Flannel Dress Pants",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/slim-flannel-dress-pant.webp",
+        "price": 90,
+        "quantity": 120
+    },
+    {
+        "name":"Leather Bag",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/leather-bag.webp",
+        "price": 4000,
+        "quantity": 2
+    },
+    {
+        "name":"Slim Performance Pant",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/slim-performance-pant.webp",
+        "price": 72,
+        "quantity": 32
+    },
+    {
+        "name":"White Haven Short",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/white-haven-short.jpg",
+        "price": 25,
+        "quantity": 20000
+    },
+    {
+        "name":"Cruz Popover Top",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima esse exercitationem vero et laboriosam temporibus perspiciatis assumenda quibusdam fugiat sequi.",
+        "image": "/shop-images/cruz-popover-top.webp",
+        "price": 14,
+        "quantity": 450
+    }
+
+]
