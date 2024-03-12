@@ -5,14 +5,16 @@
 }
 
 .card {
-    border: .1em solid black;
+    /* border: .1em solid black;
     border-radius: 1em;
-    box-shadow: 1em 1em rgba(0, 0, 0, 0.1);
+    box-shadow: 1em 1em rgba(0, 0, 0, 0.1); */
     padding: 1em;
     margin: 1em;
     height: 1em;
     width: 16em;
    text-align: center;
+   position: top;
+   font-size: 1.3em;
     
     
    
@@ -30,12 +32,14 @@
     text-align: center;
     color: black;
     font-family: cursive;
+    
 }
 
 .shop-background {
-    background-image: url("../../../public/images/summersale1.jpg");
+    background-image: url("../../../public/images/summersale2.webp");
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
+    opacity: 80%;
 }

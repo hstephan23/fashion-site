@@ -64,14 +64,18 @@
   height: 100%;
   width: 100%;
   margin-top: 6em;
+  
 }
 
 .splash-title {
   margin-left: 5%;
+  font-family: cursive;
+
 }
 
 .home-title {
   margin-left: 25%;
+  font-family: cursive;
 }
 
 .title {
