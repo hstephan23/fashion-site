@@ -20,9 +20,12 @@ const Cart = () => {
   // Then we should redirect to the checkout with a reference to our session id
   useEffect(() => {
     if (data) {
+      console.log(data);
       stripePromise.then((res) => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
+    } else {
+      console.log("NO DATA!");
     }
   }, [data]);
 
@@ -31,7 +34,7 @@ const Cart = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      // console.log("----------------------" + cart[0]._id);
+      console.log("----------------------" + cart[0]._id);
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
 
@@ -57,7 +60,6 @@ const Cart = () => {
   // When the submit checkout method is invoked, loop through each item in the cart
   // Add each item id to the productIds array and then invoke the getCheckout query passing an object containing the id for all our products
   function submitCheckout() {
-
     getCheckout({
       variables: { 
         products: [...state.cart],
@@ -68,9 +70,7 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
-        </span>
+        <span role="img" aria-label="trash">🛒</span>
       </div>
     );
   }
@@ -84,7 +84,9 @@ const Cart = () => {
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
+            <CartItem 
+              key={item._id} 
+              item={item} />
           ))}
 
           <div className="flex-row space-between">
