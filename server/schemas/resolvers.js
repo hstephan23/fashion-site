@@ -1,6 +1,8 @@
 const { Article, Category, Comment, Order, Post, Product, User } = require('../models');
+const dotenv = require('dotenv').config();
+const { countDocuments } = require('../models/User');
 const { signToken, AuthenticationError } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')(process.env.SECRET_KEY_STRIPE);
 
 // import the models 
 // import stripe
@@ -67,23 +69,22 @@ const resolvers = {
                     currency: 'usd',
                     product_data: {
                         name: product.name,
-                        image: [`${url}/images/${product.image}`]
+                        description: product.description,
+                        images: [`url/${product.image}`]
                     },
                     unit_amount: product.price * 100,
                 },
                 quantity: product.purchaseQuantity,
             })
         }
-
-        const session = await stripe.checkout.session.create({
+        const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items,
             mode: 'payment',
             success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${url}/`,
         });
-        
-        console.log(session);
+
         return { session: session.id };
       }
     },

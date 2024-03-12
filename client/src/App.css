@@ -21,7 +21,6 @@
   --color-purple: purple;
   --color-black: black;
   --color-brown: rgb(208, 174, 174);
-  --text-shadow: .2rem .2rem rgba(104, 104, 104, 0.491);
 }
 
 .logo {
@@ -65,14 +64,18 @@
   height: 100%;
   width: 100%;
   margin-top: 6em;
+  
 }
 
 .splash-title {
   margin-left: 5%;
+  font-family: cursive;
+
 }
 
 .home-title {
   margin-left: 25%;
+  font-family: cursive;
 }
 
 .title {
@@ -82,26 +85,79 @@
   text-shadow: var(--text-shadow);
 }
 
+.login-container {
+  background-color: var(--color-brown);
+  border: .1rem solid black;
+  border-radius: 1em;
+  box-shadow: .5rem .5rem 1rem 1rem rgba(0, 0, 0, 0.314);
+  height: auto;
+  width: auto;
+}
+
 .login-form {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: right;
   justify-content: space-around;
-  height: 5em;
+  height: 70%;
+}
+
+.form-div-container {
+  height: 80%;
+  width: 100%;
 }
 
 .login-signup-menu {
+  display: flex;
+  align-items: center;
   text-align: center;
   color: black;
+  height: 5em;
+  width: 100%;
 }
 
 .login-signup-text {
-  font-family: var(--font-riot);
+  color: var(--color-black);
+  font-family: var(--font-cursive);
   font-size: 150%;
+  margin-bottom: -10%;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+}
+
+.login-signup-text:hover {
+  text-decoration: underline;
 }
 
 .login-signup-menu:hover {
-  transition-duration: .8s;
+  /* transition-duration: .8s; */
   text-decoration: underline;
 }
+
+.form-input {
+  color: var(--color-white);
+  font-family: var(--font-oswald);
+  font-size: 100%;
+  display: grid;
+  display: table-column-group;
+  border-radius: 0%;
+  box-sizing: border-box;
+  padding: 2rem;
+  margin: 1rem;
+  text-align: left;
+  width: 70%;
+}
+
+.form-label {
+  height: 100%;
+  width: 20%;
+}
+
+/* .signup {
+  font-family: var(--font-riot);
+  font-size: 150%;
+  color: var(--color-pink);
+
+} */

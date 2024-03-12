@@ -11,7 +11,6 @@ const BlogProvider = ({ value = [], ...props}) => {
         products: [],
         cart: [],
         cartOpen: false,
-        categories: [],
         currentCategory: '',
     });
 
@@ -23,3 +22,5 @@ const useStoreContext = () => {
 };
 
 export { BlogProvider, useStoreContext };
+
+// categories[],
