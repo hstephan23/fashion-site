@@ -2,101 +2,139 @@
 import axios from 'axios';
 import { useQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
 import { useStoreContext } from '../utils/GlobalState';
-import { QUERY_ARTICLES } from '../utils/queries';
+import { QUERY_ARTICLES, QUERY_POSTS } from '../utils/queries';
+import { idbPromise } from '../utils/helpers';
+import { UPDATE_ARTICLES, UPDATE_POSTS } from '../utils/actions';
+
 // import ProductList from '../components/ProductList';
+import Articles from '../components/Article';
 
 const Content = () => {
-    // const [content, setContent] = useState('');
+    const [state, dispatch]  = useStoreContext();
+    const [postData, setPost] = useState([{}]);
+    const [arts, setArticles] = useState([]);
+    // const { loading, error, data } = useQuery(QUERY_POSTS);
     // const { loading, error, data } = useQuery(QUERY_ARTICLES);
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
+    const api_key = '075c77e26d82488997236d886c2e4b11';
+    const fetchCategory = 'fashion';
+    
+    let posts = [];
+    let articles = [];
+    
+    // useEffect(() => {
+    //   if(postData) {
+    //     dispatch({
+    //       type: UPDATE_POSTS,
+    //       posts: data.posts,
+    //     });
+    //     data.posts.forEach((post) => {
+    //       idbPromise('posts', 'put', post);
+    //     })
+    //   } else if(!loading) {
+    //     idbPromise('posts', 'get').then((posts) => {
+    //       dispatch({
+    //         type: UPDATE_POSTS,
+    //         posts: posts,
+    //       });
+    //     });
+    //   }
+    // }, [data, loading, dispatch]);
+
+    const blogPost = (e) => {
+      const target = e.target;
+      const text = document.querySelector('#subject').value;
+      const name = document.querySelector('#fname').value.trim() + (" ") + document.querySelector('#lname').value.trim('');
+      const postData = {
+        name: name,
+        text: text,
+      }
+      e.stopPropagation();
+      e.preventDefault();
+      posts.push(postData);
+      setPost(posts);
+      console.log("Blog Post Posted: " + postData.text);
+    }
 
     useEffect(() => {
       console.log("Fetching Articles");
-      const fetchContent = async () => {
-        try {
-          const response = await axios.get(`https://jsonplaceholder.typicode.com/users`);
-          console.log(response);
-          // setContent(response.data);
-          // setLoading(false);
-        } catch (error) {
-          console.error(error);
-          // setError(error.message);
-          // setLoading(false);
+      axios.get(`https://newsapi.org/v2/${'everything'}?q=${fetchCategory}&language=en&from=2024-02-11&sortBy=publishedAt&page=2&apiKey=075c77e26d82488997236d886c2e4b11`)
+      .then((res) => {
+        const arts = res.data.articles;
+        for(let i = 0; i < 10; i++) {
+          articles.push(arts[i]);
         }
-      };
-
-      fetchContent();
+        console.log(articles);
+        setArticles(articles);
+      }).catch((error) => {
+        console.error(error);
+      })
     }, []);
 
-    // // console.log(data);
+      return (
+        <div className='blog-parent-container'>
+          <div className='blog-container'>
+            <div className='blog-post-container'>
+              {postData > 0 ? postData.map((post) => {
+                <div>
+                  <h1 className='blog-post-name'>{post.name}</h1>
+                  <p className='blog-text'>{post.text}</p>
+                </div>
+              }) : <div>No Posts!</div>}
+            </div>
 
-    // if (loading) {
-    //   return (
-    //     <div>Loading...</div>
-    //   );
+            <div className="blog-form-container">
+            <form className='blog-form'>
+              <div className="row">
+                <div className="col-75">
+                  <label htmlFor="fname">First Name: </label>
+                  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                  </input>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-75">
+                  <label htmlFor="lname">Last Name: </label>
+                  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                  </input>
+                </div>
+              </div>
+              <div className="row">
+                  {/* <label htmlFor="subject">Post</label> */}
+                  <textarea id="subject" name="subject" placeholder="Write something.." maxLength={250}></textarea>
+              </div>
+              <br>
+              </br>
+              <div className="row">
+                <input className='form-submit' type="submit" value="Submit" onSubmit={blogPost}  onClick={blogPost}>
+                </input>
+              </div>
+            </form>
+          </div>
+          </div>
+          
+          <div className='article-container'>
+            {arts ? arts.map((article, index) => (
+              <Articles 
+                // key={index}
+                author={article.author}
+                description={article.description}
+                content={article.content}
+                imgURL={article.urlToImage}
+                url={article.url}
+              />
+              // <div>
+              //   <h1>{article.author}</h1>
+              //   <h2>{article.description}</h2>
+              //   <h3>{article.content}</h3>
+              //   <img src={article.urlToImg}></img>
+              // </div>
+            )) : <div> {console.log(articles.length)}No Articles! </div>
+            }
+          </div>
+        </div>
+      );
     // }
-
-    // if (error) {
-    //   return (
-    //     <div>Error: {error}</div>
-    //   );
-    // }
-
-    return (
-      <div className="container">
-        <form action="/action_page.php">
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="fname">First Name</label>
-          </div>
-          <div className="col-75">
-            <input type="text" id="fname" name="firstname" placeholder="Your name..">
-            </input>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="lname">Last Name</label>
-          </div>
-          <div className="col-75">
-            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-            </input>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="country">Country</label>
-          </div>
-          <div className="col-75">
-            <select id="country" name="country">
-              <option value="australia">Australia</option>
-              <option value="canada">Canada</option>
-              <option value="usa">USA</option>
-            </select>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-25">
-            <label htmlFor="subject">Subject</label>
-          </div>
-          <div className="col-75">
-            <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
-          </div>
-        </div>
-        <br>
-        </br>
-        <div className="row">
-          <input type="submit" value="Submit">
-          </input>
-        </div>
-        </form>
-          {/* <h1>Content</h1>
-              <p>{content}</p> */}
-      </div>
-    );
   };
 
   export default Content;

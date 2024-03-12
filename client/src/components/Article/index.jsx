@@ -1,10 +1,45 @@
-import React, { useState, useEffect } from 'react';
-//  import axios from 'axios';
+import { useStoreContext } from '../../utils/GlobalState';
+import { idbPromise } from "../../utils/helpers";
 
- const Articles = () => {
-   const [articles, setArticles] = useState([]);
-   const [loading, setLoading] = useState(true);
-   const [error, setError] = useState(null);
+import './style.css';
+ const Articles = (article) => {
+   const [state, dispatch] = useStoreContext();
+
+   const {
+    key,
+    _id,
+    author,
+    description,
+    content,
+    url,
+    imgURL
+   } = article;
+   console.log(article);
+
+   // useEffect(() => {
+    //     try {
+    //       console.log(state);
+    //       if(data) {
+    //         dispatch({
+    //           type: UPDATE_ARTICLES,
+    //           articles: data.articles,
+    //         });
+    //         data.forEach((article) => {
+    //           console.log("MADE IT!" + article);
+    //           idbPromise('articles', 'put', article);
+    //         });
+    //       } else if (!loading) {
+    //         idbPromise('articles', 'get').then((articles) => {
+    //           dispatch({
+    //             type: UPDATE_ARTICLES,
+    //             articles: articles,
+    //           });
+    //         });
+    //       }
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+    // }, [loading, error, data]);
 
 //    useEffect(() => {
 //      const fetchArticles = async () => {
@@ -21,25 +56,13 @@ import React, { useState, useEffect } from 'react';
 //      fetchArticles();
 //    }, []);
 
-   if (loading) {
-     return <div>Loading...</div>;
-   }
-
-   if (error) {
-     return <div>Error: {error}</div>;
-   }
-
    return (
-     <div>
-       <h1>Articles</h1>
-       <ul>
-         {articles.map(article => (
-           <li key={article.id}>
-             <h2>{article.title}</h2>
-             <p>{article.content}</p>
-           </li>
-         ))}
-       </ul>
+     <div className='article-div' key={article.key}>
+          <h2 className='article-desc'>{article.description}</h2>
+          <h3 className='article-content'>{article.content}</h3>
+          <img className='article-img' src={article.imgURL}></img>
+          <h1 className='article-title'>Author: {article.author}</h1>
+          <a className='article-url' href={article.url}>{article.url}</a>
      </div>
    );
  };

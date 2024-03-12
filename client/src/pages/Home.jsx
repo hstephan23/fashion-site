@@ -25,10 +25,6 @@ const Home = () => {
     navigate(path);
   };
 
-  const Log = (e) => {
-    console.log(e.target);
-  }
-
   return (
     <div className='parallax-group'>
       <Header></Header>

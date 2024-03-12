@@ -34,20 +34,23 @@
 }
 
 .cart-closed {
+    background-color: var(--secondary);
+    border-radius: 50%;
+    box-shadow: 0rem 0rem .5rem .5rem rgba(0, 0, 0, 0.348);
+    cursor: pointer;
     position: fixed;
     top: 2%;
     right: 1%;
     font-size: 2rem;
-    cursor: pointer;
-    background-color: var(--secondary);
-    border-radius: 50%;
     padding: .25rem;
+    margin-top: 5%;
     width: 50px;
     height: 50px;
 }
 
 .cart-closed:hover {
-    transform: rotate(8deg);
+    transition-duration: .4s;
+    transform: rotate(18deg);
 }
 
 .cart img {
