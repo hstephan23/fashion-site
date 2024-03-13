@@ -13,6 +13,10 @@ const resolvers = {
         return User.find();
       },
 
+    profile: async (parent, { profileId }) => {
+      return User.findOne({ _id: profileId });
+    },
+
       user: async(parent, { userId }) => {
         return User.findOne({ _id: userId });
       },

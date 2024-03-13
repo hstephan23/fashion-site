@@ -1,6 +1,3 @@
-// do we need password? 
-// user
-// products 
 const typeDefs = `
     type User {
         _id: ID!
@@ -60,6 +57,7 @@ const typeDefs = `
     type Auth {
         token: ID
         user: User
+        profile:User
     }
 
     input ProductInput {
@@ -76,6 +74,8 @@ const typeDefs = `
         user(_id: ID!): User
         users: [User]
 
+        profile(profileId: ID!): User
+        
         article(_id: ID!): Article
         articles: [Article]
 
