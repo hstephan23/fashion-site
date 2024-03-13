@@ -56,17 +56,17 @@ export default function Nav() {
             <div className="nav-element" style={linkStyle}>
               <Link id="profile-nav" to="/me">Profile</Link>
             </div>
-            
-            <div className="nav-element" style={linkStyle}>
-              <Link to="/shop">Shop</Link>
-            </div>
 
             <div className="nav-element" style={linkStyle}>
               <Link to="/content">Blog</Link>
             </div>
+            
+            <div className="nav-element" style={linkStyle}>
+              <Link to="/shop">Shop<span role="img" aria-label="shopping bag"> 🛍️</span></Link>
+            </div>
 
             <div className="nav-element nav-hover" style={linkStyle}>
-              <Link to="/cart">Cart</Link>
+              <Link to="/cart">🛒</Link>
               {/* <div id="drop-cart" className="drop-menu">
                 <Link to="/order">Order History</Link>
                 <Link to="/cart">Check Out</Link>

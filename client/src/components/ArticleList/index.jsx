@@ -5,41 +5,39 @@ import { QUERY_ARTICLES } from '../../utils/queries';
 
 import Article from '../Article';
 
-const ArticleList = () => {
+const ArticleList = (article) => {
     const [state, dispatch] = useStoreContext();
-    const { loading, data, error } = useQuery(QUERY_ARTICLES);
+    // const { loading, data, error } = useQuery(QUERY_ARTICLES);
 
-    console.log(data);
     let articleArray = [];
+    articleArray.push(article);
     for(let article of data) {
         if(article.userID === profileId) {
             articleArray.push(article);
         }
     };
 
-    useEffect(() => {
-        if (data) {
-          dispatch({
-            type: UPDATE_ARTICLES,
-            articles: data.articles,
-          });
-          data.articles.forEach((article) => {
-            idbPromise('articles', 'put', article);
-          });
-        } else if (!loading) {
-          idbPromise('articles', 'get').then((articles) => {
-            dispatch({
-              type: UPDATE_ARTICLES,
-              articles: articles,
-            });
-          });
-        }
-      }, [data, loading, dispatch]);
+    console.log("-----------" + articleArray);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
+    // useEffect(() => {
+    //     if (data) {
+    //       dispatch({
+    //         type: UPDATE_ARTICLES,
+    //         articles: data.articles,
+    //       });
+    //       data.articles.forEach((article) => {
+    //         idbPromise('articles', 'put', article);
+    //       });
+    //     } else if (!loading) {
+    //       idbPromise('articles', 'get').then((articles) => {
+    //         dispatch({
+    //           type: UPDATE_ARTICLES,
+    //           articles: articles,
+    //         });
+    //       });
+    //     }
+    //   }, [data, loading, dispatch]);
+    
     return (
         <div>
             <ul>

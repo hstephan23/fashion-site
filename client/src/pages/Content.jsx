@@ -11,54 +11,49 @@ import { UPDATE_ARTICLES, UPDATE_POSTS } from '../utils/actions';
 import Articles from '../components/Article';
 
 const Content = () => {
-    const [state, dispatch]  = useStoreContext();
-    const [postData, setPost] = useState();
+    const [state, dispatch, loading]  = useStoreContext();
+    const [postData, setPost] = useState([]);
     const [arts, setArticles] = useState([]);
     // const { loading, error, data } = useQuery(QUERY_POSTS);
     // const { loading, error, data } = useQuery(QUERY_ARTICLES);
 
     const fetchCategory = 'fashion';
-    const api_key = '075c77e26d82488997236d886c2e4b11';
-    const newsAPIlink = `https://newsapi.org/v2/${'everything'}?q=${fetchCategory}&language=en&from=2024-02-11&sortBy=publishedAt&page=2&apiKey=075c77e26d82488997236d886c2e4b11`;
-
-    const test_api_key = "pub_399232ebf68850644cb83ed750fdd11b9477e";
-    const testAPIlink = `https://newsdata.io/api/1/news?q=${fetchCategory}?apikey=${test_api_key}`;
-
+    const test_api_key = "pub_39980a34d24d9fa0333ffbedf7d600ea9146f";
+    
     let posts = [];
     let articles = [];
     
-    // useEffect(() => {
-    //   if(postData) {
-    //     dispatch({
-    //       type: UPDATE_POSTS,
-    //       posts: data.posts,
-    //     });
-    //     data.posts.forEach((post) => {
-    //       idbPromise('posts', 'put', post);
-    //     })
-    //   } else if(!loading) {
-    //     idbPromise('posts', 'get').then((posts) => {
-    //       dispatch({
-    //         type: UPDATE_POSTS,
-    //         posts: posts,
-    //       });
-    //     });
-    //   }
-    // }, [data, loading, dispatch]);
-
+    useEffect(() => {
+      if(postData) {
+        dispatch({
+          type: UPDATE_POSTS,
+          posts: postData,
+        });
+        postData.forEach((post) => {
+          idbPromise('posts', 'put', post);
+        })
+      } else if(!loading) {
+        idbPromise('posts', 'get').then((posts) => {
+          dispatch({
+            type: UPDATE_POSTS,
+            posts: posts,
+          });
+        });
+      }
+    }, [postData, loading, dispatch]);
+    
     const blogPost = (e) => {
       const target = e.target;
+      e.stopPropagation();
+      e.preventDefault();
       const text = document.querySelector('#subject').value;
       const name = document.querySelector('#fname').value.trim() + (" ") + document.querySelector('#lname').value.trim('');
       const postData = {
         name: name,
         text: text,
       }
-      e.stopPropagation();
-      e.preventDefault();
       posts.push(postData);
       setPost(posts);
-      console.log("Blog Post Posted: " + postData.text);
     }
 
     useEffect(() => {
@@ -75,68 +70,71 @@ const Content = () => {
       })
     }, []);
 
-      return (
-        <div className='blog-parent-container'>
-          <div className='blog-container'>
-            <div className='blog-post-container'>
-              {postData > 0 ? postData.map((post) => {
-                <div>
-                  <h1 className='blog-post-name'>{post.name}</h1>
-                  <p className='blog-text'>{post.text}</p>
-                </div>
-              }) : <div>No Posts!</div>}
-            </div>
+    console.log(arts);
 
-            <div className="blog-form-container">
-            <form className='blog-form'>
-              <div className="row">
-                <div className="col-75">
-                  <label htmlFor="fname">First Name: </label>
-                  <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                  </input>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-75">
-                  <label htmlFor="lname">Last Name: </label>
-                  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-                  </input>
-                </div>
-              </div>
-              <div className="row">
-                  {/* <label htmlFor="subject">Post</label> */}
-                  <textarea id="subject" name="subject" placeholder="Write something.." maxLength={250}></textarea>
-              </div>
-              <br>
-              </br>
-              <div className="row">
-                <input className='form-submit' type="submit" value="Submit" onSubmit={blogPost}  onClick={blogPost}>
+    if(loading) {
+      return (
+          <div>Loading...</div>
+      )
+    }
+
+    return (
+      <div className='blog-parent-container'>
+        <div className='blog-container'>
+          <div className='blog-post-container'>
+            {postData ? postData.map((post) => (<div>
+                <h1 className='blog-post-name'>{post.name}</h1>
+                <p className='blog-text'>{post.text}</p>
+              </div>)
+            ) : <div>No Posts!</div>}
+          </div>
+
+          <div className="blog-form-container">
+          <form className='blog-form'>
+            <div className="row">
+              <div className="col-75">
+                <label htmlFor="fname">First Name: </label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
                 </input>
               </div>
-            </form>
-          </div>
-          </div>
-          
-          <div className='article-container'>
-            {arts ? arts.map((article, index) => (
-              <Articles 
-                // key={index}
-                description={article.description}
-                imgURL={article.image_url}
-                url={article.link}
-              />
-              // <div>
-              //   <h1>{article.author}</h1>
-              //   <h2>{article.description}</h2>
-              //   <h3>{article.content}</h3>
-              //   <img src={article.urlToImg}></img>
-              // </div>
-            )) : <div> {console.log(articles.length)}No Articles! </div>
-            }
-          </div>
+            </div>
+            <div className="row">
+              <div className="col-75">
+                <label htmlFor="lname">Last Name: </label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                </input>
+              </div>
+            </div>
+            <div className="row">
+                {/* <label htmlFor="subject">Post</label> */}
+                <textarea id="subject" name="subject" placeholder="Write something.." maxLength={250}></textarea>
+            </div>
+            <br>
+            </br>
+            <div className="row">
+              <button className='form-submit' onSubmit={blogPost} onClick={blogPost}>
+                Submit
+              </button>
+              {/* <input type="submit" value="Submit" placeholder='submit'>
+              </input> */}
+            </div>
+          </form>
         </div>
-      );
-    // }
+        </div>
+        
+        <div className='article-container'>
+          {arts ? arts.map((article, index) => (
+            <Articles
+              key={index}
+              description={article.description}
+              imgURL={article.image_url}
+              url={article.link}
+            />
+          )) : <div> No Articles! </div>
+          }
+        </div>
+      </div>
+    );
   };
 
   export default Content;

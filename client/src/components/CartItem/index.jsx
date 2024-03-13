@@ -36,13 +36,13 @@ const CartItem = ({ item }) => {
 
   return (
     <div key={item._id} className="flex-row">
-      <div>
+      <div className="cart-image-container">
         <img
           src={`/images/${item.image}`}
           alt=""
         />
       </div>
-      <div>
+      <div className="cart-item-container">
         <div>{item.name}, ${item.price}</div>
         <div>
           <span>Qty:</span>
