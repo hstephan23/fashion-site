@@ -5,16 +5,19 @@ import { QUERY_ARTICLES } from '../../utils/queries';
 
 import Article from '../Article';
 
-const ArticleList = () => {
+const ArticleList = (article) => {
     const [state, dispatch] = useStoreContext();
-    const { loading, data, error } = useQuery(QUERY_ARTICLES);
+    // const { loading, data, error } = useQuery(QUERY_ARTICLES);
 
     let articleArray = [];
+    articleArray.push(article);
     for(let article of data) {
         if(article.userID === profileId) {
             articleArray.push(article);
         }
     };
+
+    console.log("-----------" + articleArray);
 
     // useEffect(() => {
     //     if (data) {
@@ -34,11 +37,7 @@ const ArticleList = () => {
     //       });
     //     }
     //   }, [data, loading, dispatch]);
-
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    // }
-
+    
     return (
         <div>
             <ul>

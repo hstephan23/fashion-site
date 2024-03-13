@@ -3,57 +3,42 @@ import { idbPromise } from "../../utils/helpers";
 
 import './style.css';
  const Articles = (article) => {
-   const [state, dispatch] = useStoreContext();
+    // const [state, dispatch] = useStoreContext();
 
-   const {
-    key,
-    _id,
-    author,
-    description,
-    content,
-    url,
-    imgURL
-   } = article;
+     const test = {
+      key,
+      _id,
+      description,
+      url,
+      imgURL
+     } = article;
 
-   // useEffect(() => {
-    //     try {
-    //       console.log(state);
-    //       if(data) {
-    //         dispatch({
-    //           type: UPDATE_ARTICLES,
-    //           articles: data.articles,
-    //         });
-    //         data.forEach((article) => {
-    //           console.log("MADE IT!" + article);
-    //           idbPromise('articles', 'put', article);
-    //         });
-    //       } else if (!loading) {
-    //         idbPromise('articles', 'get').then((articles) => {
-    //           dispatch({
-    //             type: UPDATE_ARTICLES,
-    //             articles: articles,
-    //           });
-    //         });
-    //       }
-    //     } catch (error) {
-    //       console.error(error);
-    //     }
-    // }, [loading, error, data]);
+     console.log("-------------------------------------" + test);
 
-//    useEffect(() => {
-//      const fetchArticles = async () => {
-//        try {
-//          const response = await axios.get('https://your-api-url/articles');
-//          setArticles(response.data);
-//          setLoading(false);
-//        } catch (error) {
-//          setError(error.message);
-//          setLoading(false);
-//        }
-//      };
-
-//      fetchArticles();
-//    }, []);
+  //  useEffect(() => {
+  //       try {
+  //         console.log(state);
+  //         if(data) {
+  //           dispatch({
+  //             type: UPDATE_ARTICLES,
+  //             articles: data.articles,
+  //           });
+  //           data.forEach((article) => {
+  //             console.log("MADE IT!" + article);
+  //             idbPromise('articles', 'put', article);
+  //           });
+  //         } else if (!loading) {
+  //           idbPromise('articles', 'get').then((articles) => {
+  //             dispatch({
+  //               type: UPDATE_ARTICLES,
+  //               articles: articles,
+  //             });
+  //           });
+  //         }
+  //       } catch (error) {
+  //         console.error(error);
+  //       }
+  //   }, [loading, error, data]);
 
    return (
      <div className='article-div' key={article.key}>

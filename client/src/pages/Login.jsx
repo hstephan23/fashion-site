@@ -41,8 +41,7 @@ const Login = (props) => {
   return (
     <main className="flex-row justify-center mb-4 blogs-main">
       <div className="col-12 col-lg-10">
-        <div className="card">
-          <div className="card-body">
+        <div className="login-parent">
             {data ? (
               <p>
                 Success! You may now head{' '}
@@ -50,10 +49,10 @@ const Login = (props) => {
               </p>
             ) : (
               <div className='login-container'>
-                <h1 className=''>Login!</h1>
+                <h1 className='login-title'>Login!</h1>
                 <form className='login-form' onSubmit={handleFormSubmit}>
                   <div className='form-div-container'>
-                    <div className='form-el-div'>
+                    <div className='form-div'>
                       <label className='form-label' for='email'>Email: </label>
                       <input
                         className="form-input"
@@ -65,7 +64,7 @@ const Login = (props) => {
                         onChange={handleChange}
                       />
                     </div>
-                    <div>
+                    <div className='form-div'>
                       <label className='form-label' for='password'>Password: </label>
                       <input
                         className="form-input"
@@ -88,7 +87,6 @@ const Login = (props) => {
                     </button>
                   </div>
                   
-                  
                 </form>
                 <div className="login-signup-menu">
                   <a className="login-signup-text" href="/signup">No Account? Sign-Up!</a>
@@ -102,7 +100,6 @@ const Login = (props) => {
               </div>
             ) : null}
           </div>
-        </div>
       </div>
     </main>
   );

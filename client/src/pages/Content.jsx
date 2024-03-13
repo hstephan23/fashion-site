@@ -18,11 +18,7 @@ const Content = () => {
     // const { loading, error, data } = useQuery(QUERY_ARTICLES);
 
     const fetchCategory = 'fashion';
-    const api_key = '075c77e26d82488997236d886c2e4b11';
-    const newsAPIlink = `https://newsapi.org/v2/${'everything'}?q=${fetchCategory}&language=en&from=2024-02-11&sortBy=publishedAt&page=2&apiKey=075c77e26d82488997236d886c2e4b11`;
-
     const test_api_key = "pub_39980a34d24d9fa0333ffbedf7d600ea9146f";
-    const testAPIlink = `https://newsdata.io/api/1/news?q=${fetchCategory}?apikey=${test_api_key}`;
     
     let posts = [];
     let articles = [];
@@ -64,7 +60,6 @@ const Content = () => {
       console.log("Fetching Articles");
       axios.get(`https://newsdata.io/api/1/news?q=${fetchCategory}&language=en&apikey=${test_api_key}`)
       .then((res) => {
-        console.log(res);
         const arts = res.data.results;
         for(let i = 0; i < 10; i++) {
           articles.push(arts[i]);
@@ -76,6 +71,12 @@ const Content = () => {
     }, []);
 
     console.log(arts);
+
+    if(loading) {
+      return (
+          <div>Loading...</div>
+      )
+    }
 
     return (
       <div className='blog-parent-container'>
@@ -123,13 +124,13 @@ const Content = () => {
         
         <div className='article-container'>
           {arts ? arts.map((article, index) => (
-            <Articles 
+            <Articles
               key={index}
               description={article.description}
               imgURL={article.image_url}
               url={article.link}
             />
-          )) : <div> {console.log(articles.length)}No Articles! </div>
+          )) : <div> No Articles! </div>
           }
         </div>
       </div>
