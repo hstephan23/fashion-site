@@ -37,7 +37,13 @@ https://opensource.org/license/mit/
 MERN, dotenv, JWT, and Stripe are the main pieces being used. It is deployed on Render.    
 
 ## Test
-None
+No tests, but the site looks as follows: 
+
+![alt text](</assets/images/Screenshot 2024-03-13 at 12.46.36 PM.png>)
+
+![alt text](</assets/images/Screenshot 2024-03-13 at 12.46.48 PM.png>)
+
+![alt text](</assets/images/Screenshot 2024-03-13 at 12.47.03 PM.png>)
 
 ## License 
 MIT 
