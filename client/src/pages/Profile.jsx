@@ -10,6 +10,9 @@ const Profile = () => {
   const { profileId } = useParams();
 
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
+  console.log( {
+      variables: { profileId: profileId },
+    })
   const { loading, data, error } = useQuery(
     profileId ? QUERY_SINGLE_USER : QUERY_ME, {
       variables: { profileId: profileId },
@@ -20,8 +23,16 @@ const Profile = () => {
   const profile = data?.me || data?.profile || {};
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
-    return <Navigate to="/me" />;
+//65f105ead74ef5c6c415d90e
+
+  if (Auth.loggedIn() ) {
+    return (
+      <>
+      <img src="./images/Work_In_Progress.png" alt="picture of a work in progress sign" className="work-in-progress"/>
+      </>
+    )
+    
+    //<Navigate to="/me" />;
   }
 
   if (loading) {
@@ -30,11 +41,8 @@ const Profile = () => {
 
   if (!profile?.name) {
     return (
-      <div>
-        <div>
-          <a href='/login'>Login</a>
-          <a href='/signup'>Sign-Up</a>
-        </div>
+      <div className="signup-info"> 
+
         <h4>
           You need to be logged in to see your profile page. Use the navigation
           links above to sign up or log in!

@@ -161,3 +161,14 @@
   color: var(--color-pink);
 
 } */
+
+.work-in-progress{
+  padding-top: 10em;
+  height: 50%;
+  max-width: 50%;
+  margin: auto;
+  display: flex;
+}
+.signup-info{
+  margin:10em 5em;
+}
