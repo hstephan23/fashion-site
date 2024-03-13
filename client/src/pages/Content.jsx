@@ -11,8 +11,8 @@ import { UPDATE_ARTICLES, UPDATE_POSTS } from '../utils/actions';
 import Articles from '../components/Article';
 
 const Content = () => {
-    const [state, dispatch]  = useStoreContext();
-    const [postData, setPost] = useState();
+    const [state, dispatch, loading]  = useStoreContext();
+    const [postData, setPost] = useState([]);
     const [arts, setArticles] = useState([]);
     // const { loading, error, data } = useQuery(QUERY_POSTS);
     // const { loading, error, data } = useQuery(QUERY_ARTICLES);
@@ -27,38 +27,38 @@ const Content = () => {
     let posts = [];
     let articles = [];
     
-    // useEffect(() => {
-    //   if(postData) {
-    //     dispatch({
-    //       type: UPDATE_POSTS,
-    //       posts: data.posts,
-    //     });
-    //     data.posts.forEach((post) => {
-    //       idbPromise('posts', 'put', post);
-    //     })
-    //   } else if(!loading) {
-    //     idbPromise('posts', 'get').then((posts) => {
-    //       dispatch({
-    //         type: UPDATE_POSTS,
-    //         posts: posts,
-    //       });
-    //     });
-    //   }
-    // }, [data, loading, dispatch]);
-
+    useEffect(() => {
+      if(postData) {
+        dispatch({
+          type: UPDATE_POSTS,
+          posts: postData,
+        });
+        postData.forEach((post) => {
+          idbPromise('posts', 'put', post);
+        })
+      } else if(!loading) {
+        idbPromise('posts', 'get').then((posts) => {
+          dispatch({
+            type: UPDATE_POSTS,
+            posts: posts,
+          });
+        });
+      }
+    }, [postData, loading, dispatch]);
+    
     const blogPost = (e) => {
       const target = e.target;
+      e.stopPropagation();
+      e.preventDefault();
       const text = document.querySelector('#subject').value;
       const name = document.querySelector('#fname').value.trim() + (" ") + document.querySelector('#lname').value.trim('');
       const postData = {
         name: name,
         text: text,
       }
-      e.stopPropagation();
-      e.preventDefault();
       posts.push(postData);
       setPost(posts);
-      console.log("Blog Post Posted: " + postData.text);
+      console.log("Blog Post Posted: " + postData.length);
     }
 
     useEffect(() => {
@@ -79,7 +79,8 @@ const Content = () => {
         <div className='blog-parent-container'>
           <div className='blog-container'>
             <div className='blog-post-container'>
-              {postData > 0 ? postData.map((post) => {
+              {postData ? postData.map((post) => {
+                console.log(post.name + " || " + post.text);
                 <div>
                   <h1 className='blog-post-name'>{post.name}</h1>
                   <p className='blog-text'>{post.text}</p>
@@ -110,8 +111,11 @@ const Content = () => {
               <br>
               </br>
               <div className="row">
-                <input className='form-submit' type="submit" value="Submit" onSubmit={blogPost}  onClick={blogPost}>
-                </input>
+                <button className='form-submit' onSubmit={blogPost} onClick={blogPost}>
+                  Submit
+                </button>
+                {/* <input type="submit" value="Submit" placeholder='submit'>
+                </input> */}
               </div>
             </form>
           </div>
@@ -120,17 +124,11 @@ const Content = () => {
           <div className='article-container'>
             {arts ? arts.map((article, index) => (
               <Articles 
-                // key={index}
+                key={index}
                 description={article.description}
                 imgURL={article.image_url}
                 url={article.link}
               />
-              // <div>
-              //   <h1>{article.author}</h1>
-              //   <h2>{article.description}</h2>
-              //   <h3>{article.content}</h3>
-              //   <img src={article.urlToImg}></img>
-              // </div>
             )) : <div> {console.log(articles.length)}No Articles! </div>
             }
           </div>

@@ -3,10 +3,10 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    margin-top: 6%;
+    margin-top: 1%;
 }
 
 .category-button {
     height: 2em;
-    width: auto;
+    width: 4em;
 }

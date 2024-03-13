@@ -5,8 +5,8 @@ import CategoryMenu from "../components/CategoryMenu";
 const Shop = () => {
     return (
       <div className="shop-background">
-        <CategoryMenu></CategoryMenu>
         <Cart></Cart>
+        <CategoryMenu></CategoryMenu>
         <ProductList></ProductList>
       </div>
     )

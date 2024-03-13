@@ -11,6 +11,7 @@ import {
 } from './actions';
 
 export const reducer = (state, action) => {
+    console.log(action);
     switch(action.type) {
         case UPDATE_ARTICLES:
             return {
@@ -20,7 +21,7 @@ export const reducer = (state, action) => {
         case UPDATE_POSTS:
             return {
                 ...state,
-                posts: [...action.post],
+                posts: [...action.posts],
             }
         case UPDATE_PRODUCTS:
             return {
