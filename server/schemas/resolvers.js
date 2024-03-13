@@ -70,7 +70,7 @@ const resolvers = {
                     product_data: {
                         name: product.name,
                         description: product.description,
-                        images: [`${url}/images/${product.image}`]
+                        images: [`${url}/images/shop-image/${product.image}`]
                     },
                     unit_amount: product.price * 100,
                 },
