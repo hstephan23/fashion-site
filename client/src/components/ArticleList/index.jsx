@@ -9,7 +9,6 @@ const ArticleList = () => {
     const [state, dispatch] = useStoreContext();
     const { loading, data, error } = useQuery(QUERY_ARTICLES);
 
-    console.log(data);
     let articleArray = [];
     for(let article of data) {
         if(article.userID === profileId) {
@@ -17,28 +16,28 @@ const ArticleList = () => {
         }
     };
 
-    useEffect(() => {
-        if (data) {
-          dispatch({
-            type: UPDATE_ARTICLES,
-            articles: data.articles,
-          });
-          data.articles.forEach((article) => {
-            idbPromise('articles', 'put', article);
-          });
-        } else if (!loading) {
-          idbPromise('articles', 'get').then((articles) => {
-            dispatch({
-              type: UPDATE_ARTICLES,
-              articles: articles,
-            });
-          });
-        }
-      }, [data, loading, dispatch]);
+    // useEffect(() => {
+    //     if (data) {
+    //       dispatch({
+    //         type: UPDATE_ARTICLES,
+    //         articles: data.articles,
+    //       });
+    //       data.articles.forEach((article) => {
+    //         idbPromise('articles', 'put', article);
+    //       });
+    //     } else if (!loading) {
+    //       idbPromise('articles', 'get').then((articles) => {
+    //         dispatch({
+    //           type: UPDATE_ARTICLES,
+    //           articles: articles,
+    //         });
+    //       });
+    //     }
+    //   }, [data, loading, dispatch]);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    // }
 
     return (
         <div>

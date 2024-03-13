@@ -39,7 +39,7 @@
 }
 
 .shop-background {
-    background-image: url("../../../public/images/summersale2.webp");
+    background-image: url("../../../images/summersale2.webp");
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;

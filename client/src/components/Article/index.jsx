@@ -14,7 +14,6 @@ import './style.css';
     url,
     imgURL
    } = article;
-   console.log(article);
 
    // useEffect(() => {
     //     try {
@@ -57,7 +56,7 @@ import './style.css';
 //    }, []);
 
    return (
-     <div className='article-div' key={article.index}>
+     <div className='article-div' key={article.key}>
           <h2 className='article-desc'>{article.description}</h2>
           <img className='article-img' src={article.imgURL}></img>
           <a className='article-url' href={article.url}>{article.url}</a>
